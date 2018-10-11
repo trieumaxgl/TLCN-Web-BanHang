@@ -7,19 +7,18 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity(name = "ne_attach_file")
+@Entity(name = "ne_bill_item")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Attach_File {
+public class Bill_Item {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @EmbeddedId
+    private Bill_Item_Id id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Items items;
+    private int quantity;
 
-    private byte[] image;
+    private Long total;
 
+    private int status;
 }

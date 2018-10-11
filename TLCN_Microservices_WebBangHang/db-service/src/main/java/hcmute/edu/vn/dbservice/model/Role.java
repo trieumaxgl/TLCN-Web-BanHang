@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
@@ -19,19 +16,13 @@ import java.util.Set;
 public class Role {
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;
+    private int id;
 
-    private String rname;
+    private String name;
 
-    private Date dateCreated;
-
-    private String userCreated;
-
-    private Date dateUpdated;
-
-    private String userUpdated;
-
+    @OneToMany(mappedBy = "roles")
+    private Set<User> user_role;
     @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+    private Set<Permission> permissions;
 }
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/TLCN-Web-BanHang.iml" filepath="$PROJECT_DIR$/TLCN-Web-BanHang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TLCN_Microservices_WebBangHang/TLCN_Microservices_WebBanHang.iml" filepath="$PROJECT_DIR$/TLCN_Microservices_WebBangHang/TLCN_Microservices_WebBanHang.iml" />
+    </modules>
+  </component>
+</project>

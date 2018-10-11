@@ -16,11 +16,11 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
 
-    private Date dateOfBirth;
+    private Date birthday;
 
-    private int sex;
+    private int gender;
 
     private byte[] avatar;
 
@@ -30,27 +30,21 @@ public class User {
 
     private String email;
 
+    private String password;
+
+    private String firstname;
+
+    private String lastname;
+
     private int status;
 
-    private Date dateCreated;
+    private String description;
 
-    private String userCreated;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Role roles;
 
-    private Date dateUpdated;
-
-    private String userUpdated;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    private Account account;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "ne_user_role",
-            joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id")
-    )
-    private Set<Role> roles;
-
+    @OneToMany(mappedBy = "user")
+    private Set<Bill> bills;
 
 }
 

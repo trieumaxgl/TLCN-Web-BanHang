@@ -8,32 +8,29 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
-@Entity(name = "ne_items")
+@Entity(name = "ne_bill")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Items {
+public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Type types;
+    private User user;
 
-    private String name;
+    private String address;
 
-    private String description;
+    private Long total;
 
-    private String status;
+    private Date date;
 
-    private Long price;
+    private String phone;
 
-    @OneToMany(mappedBy = "items")
-    private Set<Attach_File> attachFiles;
+    private int status;
 
-    @ManyToMany(mappedBy = "items")
-    private Set<Sale> sales;
-
-    @OneToMany(mappedBy = "id.items")
+    @OneToMany(mappedBy = "id.bill")
     private Set<Bill_Item> bill_items;
+
 }

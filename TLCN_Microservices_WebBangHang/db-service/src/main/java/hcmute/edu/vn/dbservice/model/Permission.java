@@ -18,28 +18,13 @@ public class Permission {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String cd;
-
     private String name;
 
-    private Long cat;
-
-    private Boolean p_create;
-
-    private Boolean p_update;
-
-    private Boolean p_delete;
-
-    private Boolean p_approve;
-
-    private Date dateCreated;
-
-    private String userCreated;
-
-    private Date dateUpdated;
-
-    private String userUpdated;
-
-    @OneToMany(mappedBy = "permission")
-    private Set<Assign_Permission> assign_permissions;
+    @ManyToMany
+    @JoinTable(
+            name = "ne_per_role",
+            joinColumns = @JoinColumn(name = "perId", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "roleId", referencedColumnName = "id")
+    )
+    private Set<Role> roles;
 }

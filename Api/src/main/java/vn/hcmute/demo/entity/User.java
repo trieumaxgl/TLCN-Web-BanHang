@@ -16,11 +16,11 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
 
-    private Date dateOfBirth;
+    private Date birthday;
 
-    private int sex;
+    private int gender;
 
     private byte[] avatar;
 
