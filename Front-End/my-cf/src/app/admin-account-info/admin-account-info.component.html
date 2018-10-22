@@ -1,0 +1,265 @@
+<div class="wrapper">
+    <div class="sidebar" data-background-color="white" data-active-color="danger">
+        <div class="sidebar-wrapper">
+              <div class="logo">
+                  <a href="admin/index" class="simple-text">
+                      Cf 81
+                  </a>
+              </div>
+  
+              <ul class="nav">
+                  <li class="active">
+                      <a href="admin/account-info">
+                          <i class="ti-user"></i>
+                          <p>Thông tin cá nhân</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="admin/type">
+                          <i class="ti-direction-alt"></i>
+                          <p>Quản lý cà phê</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="admin/member">
+                          <i class="ti-menu"></i>
+                          <p>Quản lý khách hàng</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="admin/bill">
+                          <i class="ti-pencil-alt"></i>
+                          <p>Thông kê hóa đơn</p>
+                      </a>
+                  </li>
+                  
+                  <li class="active-pro">
+                      <a href="admin/index">
+                          <i class="ti-home"></i>
+                          <p>Xem trang chủ</p>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  
+      <div class="main-panel">
+      <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar bar1"></span>
+                          <span class="icon-bar bar2"></span>
+                          <span class="icon-bar bar3"></span>
+                      </button>
+                      <a class="navbar-brand" href="#">Quản lý thông tin cá nhân</a>
+                  </div>
+                  <div class="collapse navbar-collapse">
+                          <ul class="nav navbar-nav navbar-right">
+                                  <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  
+                                              <p>&nbsp;Đăng Xuất &nbsp;</p>
+                                        </a>
+                                  </li>
+                              </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                          <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                      <img src="../../assets/admin/assets/img/faces/face-0.jpg" class="img_avatar img-responsive" alt="Cinque Terre"/>
+                                      <p>&nbsp;Triều &nbsp;</p>
+                                </a>
+                          </li>
+                          
+                      </ul>
+                     
+  
+                  </div>
+              </div>
+          </nav>
+  
+  
+          <div class="content">
+                <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4">
+                                <div class="card card-user">
+                                    <div class="image">
+                                        <img src="assets/img/background.jpg" alt="..."/>
+                                        
+                                    </div>
+                                    <div class="content">
+                                        <div class="author">
+                                          <!--  <img class="avatar border-white" src="assets/img/faces/face-1.jpg" alt="..."/>   -->
+                                          <img class="avatar border-white" alt="" src="assets/img/faces/face-0.jpg">
+                                          <h4 class="title">TRIEU<br />
+                                             <a href="#"><small>Trieu Max</small></a>
+                                          </h4>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center" style="padding-bottom: 1px;">
+                                         <h5><a href="#" data-toggle="modal" data-target="#changeAvatar" style="color: #525252; font-size: 16px;">Change avatar</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-8">
+                                <div class="card">
+                                    <div class="header">
+                                        <h4 class="title">Chỉnh sửa hồ sơ</h4>
+                                    </div>
+                                    <div class="content">
+                                        <form action="updateProfileAdmin" method="post">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Tên tài khoản</label>
+                                                        <input type="text" name="username" class="form-control border-input" disabled placeholder="UserName" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Họ</label>
+                                                        <input type="text" name="name" class="form-control border-input" placeholder="FirstName" value="" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Tên</label>
+                                                        <input type="text" name="name" class="form-control border-input" placeholder="LastName" value="" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Ngày sinh</label>
+                                                        <input type="text" name="name" class="form-control border-input" placeholder="Birtday" value="" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Địa chỉ</label>
+                                                        <input type="text" name="address" class="form-control border-input" placeholder="Address" value="" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+        
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Số điện thoại</label>
+                                                        <input type="text" name="phonenumber" class="form-control border-input" placeholder="PhoneNumber" value="" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="text" name="email" class="form-control border-input" placeholder="Email" value="" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+        
+                                            
+                                            <div style="float: left;">
+                                                <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+                                            </div>
+                                            <div style="float: right;">
+                                                <h5>
+                                                    <a  data-toggle="modal" data-target="#changePass" style="color: #525252; font-size: 16px;">Đổi mật khẩu</a>
+                                                </h5>
+                                            </div>
+                                            <div class="clearfix"></div>
+        
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+        
+        
+                        </div>
+                    </div>
+          </div>
+        	<!-- Modal đổi avatar -->
+            <div class="modal fade" id="changeAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="padding-top: 100px;">
+                    <form >
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Thay ảnh đại diện</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Chọn ảnh</p>
+                                        <input type="file" name="uploadFile" accept="image/*" onchange="loadFile(event)" /><br/>   
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-default">Cập nhật</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Modal đổi mk -->
+                <div class="modal fade" id="changePass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="padding-top: 100px;">
+                    <form>
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content"  style="color:#0000008a;">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Đổi mật khẩu</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="hidden" id="oldpass1" name="oldpass0" value="${adminInfo.password}"> 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Mật khẩu cũ</label>
+                                                <input type="password" id="oldpass2" name="oldpass" class="form-control border-input" placeholder="Old password" required>
+                                                <p><span style="color: red;" id="oldpass_error"></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Mật khẩu mới</label>
+                                                <input type="password" id="password1" name="newpass" class="form-control border-input" placeholder="New password" required>
+                                                <p><span style="color: red;" id="password1_error"></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Xác nhận mật khẩu</label>
+                                                <input type="password" id="password2" name="confirmpass" class="form-control border-input" placeholder="Confirm password" required>
+                                                <p><span style="color: red;" id="password2_error"></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" id="btnChangePass" class="btn btn-default">Cập nhật</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+		
+          <app-footer></app-footer>
+      </div>
+  </div>
