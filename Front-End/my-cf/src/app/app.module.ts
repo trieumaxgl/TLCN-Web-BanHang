@@ -11,6 +11,14 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { AdminIndexComponent } from './admin-index/admin-index.component';
+import { AdminAccountInfoComponent } from './admin-account-info/admin-account-info.component';
+import { AdminMemberComponent } from './admin-member/admin-member.component';
+import { AdminBillComponent } from './admin-bill/admin-bill.component';
+import { AdminBillDetailComponent } from './admin-bill-detail/admin-bill-detail.component';
+import { AdminTypeComponent } from './admin-type/admin-type.component';
+import { AdminTypeDetailComponent } from './admin-type-detail/admin-type-detail.component';
+import { ModalAccountInfoComponent } from './modal-account-info/modal-account-info.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +30,15 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     LoginComponent,
     RegisterComponent,
     ProductComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    AdminIndexComponent,
+    AdminAccountInfoComponent,
+    AdminMemberComponent,
+    AdminBillComponent,
+    AdminBillDetailComponent,
+    AdminTypeComponent,
+    AdminTypeDetailComponent,
+    ModalAccountInfoComponent,
   ],
   imports: [
     BrowserModule,
