@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
-@Entity(name = "ne_users")
+@Entity(name = "users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -39,6 +39,9 @@ public class User {
     private int status;
 
     private String description;
+
+    @OneToOne( fetch = FetchType.LAZY)
+    private Cart cart;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Role roles;

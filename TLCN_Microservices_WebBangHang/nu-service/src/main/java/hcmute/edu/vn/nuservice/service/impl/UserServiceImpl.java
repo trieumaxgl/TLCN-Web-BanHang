@@ -39,8 +39,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public User registerUser(User user) {
         User userCreate =  userRepository.save(user);
-        Role role = roleRepository.findByName("ROLE_USER").get();
-        userCreate.setRoles(role);
+
         return userRepository.save(userCreate);
     }
 }

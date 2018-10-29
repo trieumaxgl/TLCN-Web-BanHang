@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
-@Entity(name = "ne_items")
+@Entity(name = "items")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -36,4 +36,7 @@ public class Items {
 
     @OneToMany(mappedBy = "id.items")
     private Set<Bill_Item> bill_items;
+
+    @OneToMany(mappedBy = "id.items")
+    private Set<Cart_Item> cart_items;
 }

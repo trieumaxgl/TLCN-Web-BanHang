@@ -12,7 +12,7 @@
         <module name="TLCN_Microservices_WebBanHang" />
         <module name="TLCN_Microservices_WebTinTuc" />
       </profile>
-      <profile name="Annotation profile for nu-service" enabled="true">
+      <profile name="Annotation profile for userservice" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -33,12 +33,17 @@
           <entry name="$MAVEN_REPOSITORY$/joda-time/joda-time/2.9/joda-time-2.9.jar" />
         </processorPath>
         <module name="nu-service" />
+        <module name="user-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="nu-service" options="-Amapstruct.defaultComponentModel=spring" />
+      <module name="user-service" options="-Amapstruct.defaultComponentModel=spring" />
     </option>
   </component>
 </project>

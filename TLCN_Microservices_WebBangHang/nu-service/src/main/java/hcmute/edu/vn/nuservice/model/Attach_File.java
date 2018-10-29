@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity(name = "ne_attach_file")
+@Entity(name = "attach_file")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

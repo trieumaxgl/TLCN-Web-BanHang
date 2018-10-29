@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
-@Entity(name = "ne_bill_item")
+@Entity(name = "bill_item")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,7 +16,7 @@ public class Bill_Item {
     @EmbeddedId
     private Bill_Item_Id id;
 
-    private int quantity;
+    private Long quantity;
 
     private Long total;
 

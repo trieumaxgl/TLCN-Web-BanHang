@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity(name = "ne_attach_file")
+@Entity(name = "attach_file")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

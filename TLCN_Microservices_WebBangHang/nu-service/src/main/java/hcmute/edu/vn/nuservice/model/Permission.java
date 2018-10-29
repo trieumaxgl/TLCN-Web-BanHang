@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity(name = "ne_permission")
+@Entity(name = "permission")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,7 +21,7 @@ public class Permission {
 
     @ManyToMany
     @JoinTable(
-            name = "ne_per_role",
+            name = "per_role",
             joinColumns = @JoinColumn(name = "perId", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "roleId", referencedColumnName = "id")
     )

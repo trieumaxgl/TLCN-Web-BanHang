@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity(name = "ne_types")
+@Entity(name = "types")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
-@Entity(name = "ne_roles")
+@Entity(name = "roles")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

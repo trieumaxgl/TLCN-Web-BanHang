@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
-@Entity(name = "ne_sales")
+@Entity(name = "sales")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
