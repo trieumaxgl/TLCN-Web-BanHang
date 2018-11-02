@@ -1,3 +1,215 @@
-<p>
-  admin-bill-detail works!
-</p>
+<div class="wrapper">
+  <div class="sidebar" data-background-color="white" data-active-color="danger">
+      <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="admin/index" class="simple-text">
+                    Cf 81
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="admin/account-info">
+                        <i class="ti-user"></i>
+                        <p>Thông tin cá nhân</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/type">
+                        <i class="ti-direction-alt"></i>
+                        <p>Quản lý cà phê</p>
+                    </a>
+                </li>
+                <li >
+                    <a href="admin/member">
+                        <i class="ti-menu"></i>
+                        <p>Quản lý khách hàng</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="admin/bill">
+                        <i class="ti-pencil-alt"></i>
+                        <p>Thông kê hóa đơn</p>
+                    </a>
+                </li>
+                
+                <li class="active-pro">
+                    <a href="admin/index">
+                        <i class="ti-home"></i>
+                        <p>Xem trang chủ</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+    <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Thống kê hóa đơn</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                
+                                            <p>&nbsp;Đăng Xuất &nbsp;</p>
+                                      </a>
+                                </li>
+                            </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="../../assets/admin/assets/img/faces/face-0.jpg" class="img_avatar img-responsive" alt="Cinque Terre"/>
+                                    <p>&nbsp;TRIEU &nbsp;</p>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="DangXuat">Đăng xuất</a></li>
+                                
+                              </ul>
+                        </li>
+                    </ul>
+                   
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="btn-group" style=" padding-bottom: 15px;padding-left: 20px;">
+                      <a href="#" type="button" class="btn btn-default">
+                        <i class="ti-arrow-left"></i>&nbsp;&nbsp;back
+                      </a>
+                  </div>
+            </div>
+            
+              <div class="row">
+              
+                  <div class="col-md-12">
+                    
+                      <div class="card">
+                          <div class="header" style="float: left;">
+                              <h3 class="title">Thông tin hóa đơn</h3>
+                              <p class="category"></p>
+                              
+                          </div>
+                          
+                          <div class="clearfix"></div>
+                          <div class="content">
+                               <form action="updateRoom" method="post">
+                                 <input type="hidden" name="roomid" value="${roomInfo.roomid}" />
+                                 <input type="hidden" name="hotelID" value="${hotelid}" />
+                                 <input type="hidden" name="hotelName" value="${hotelName}" />
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Tên khách hàng</label>
+                                              <input type="text" class="form-control border-input" name="roomname" value="Trieu Quang Tran" required>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <input type="hidden" id="loaiphong" value="${roomInfo.roomcategoryid}" />
+                                              <label>Mail</label>
+                                              <input type="text" class="form-control border-input" name="roomname" value="Trieu@gmail.com" required>                                                
+                                          </div>
+                                      </div>
+                                  </div>
+      
+                                  
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Tổng tiền </label>
+                                              <div class="input-group">
+                                                  <span style="border: 1px solid #ccc5b9;" class="input-group-addon "><i style="font-size: 15px;" class="ti-money"></i></span>
+                                                  <input type="number" class="form-control border-input" name="price" value="100000" required>
+                                                  
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label>Ngày </label>
+                                                  <input type="date" name="date" class="form-control border-input" placeholder="Date" value="${feedbackInfo.createdate }" required>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Trạng thái</label>
+                                              <input type="text" class="form-control border-input" disabled placeholder="Status" name="r_status" value="">
+                                          </div>
+                                          <div class="form-group">
+                                              <label>Số điện thoại</label>
+                                              <input type="text" class="form-control border-input" disabled placeholder="Status" name="r_status" value="">
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <div class="form-group">
+                                              <label>Địa chỉ </label>
+                                              <input type="text" class="form-control border-input" disabled placeholder="Status" name="r_status" value="">
+                                              
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <div class="form-group">
+                                              <label>Danh sách mua  </label>
+                                              
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="clearfix"></div>
+                                  <div class="content table-responsive table-full-width">
+                                      <table id="tablepaging" class="table table-striped">
+                                          <thead>
+                                              <th>Tên cà phê</th>
+                                              <th>Loại</th>
+                                              <th>Giá</th>
+                                          </thead>
+                                          <tbody>
+                                              
+                                                  <tr>
+                                                      <td>
+                                                          <div >
+                                                              <span>
+                                                              CÀ Phê 1
+                                                              </span>
+                                                          </div>
+                                                      </td>
+                                                      <td>Bột</td>
+                                                      <td>5000$</td>
+                                                  </tr>
+                                             
+                                          </tbody>
+                                      </table> 
+                                      <div id="pageNavPosition" style="padding-top: 20px" align="center"></div>
+                                  </div>
+                                  
+                                  <div style="text-align: center;" >
+                                      <button type="submit" class="btn btn-info btn-fill btn-wd">Xuất Hóa Đơn</button>
+                                  </div>
+                                  <div class="clearfix"></div>
+
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+        <app-footer></app-footer>
+    </div>
+</div>

@@ -19,6 +19,7 @@ import { AdminBillDetailComponent } from './admin-bill-detail/admin-bill-detail.
 import { AdminTypeComponent } from './admin-type/admin-type.component';
 import { AdminTypeDetailComponent } from './admin-type-detail/admin-type-detail.component';
 import { ModalAccountInfoComponent } from './modal-account-info/modal-account-info.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ModalAccountInfoComponent } from './modal-account-info/modal-account-in
     AdminTypeComponent,
     AdminTypeDetailComponent,
     ModalAccountInfoComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

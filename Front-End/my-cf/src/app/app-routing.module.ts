@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CartComponent } from './cart/cart.component';
 import { AdminIndexComponent } from './admin-index/admin-index.component';
 import { AdminAccountInfoComponent } from './admin-account-info/admin-account-info.component';
 import { AdminMemberComponent } from './admin-member/admin-member.component';
@@ -15,12 +16,14 @@ import { AdminTypeDetailComponent } from './admin-type-detail/admin-type-detail.
 import { AdminBillComponent } from './admin-bill/admin-bill.component';
 import { AdminBillDetailComponent } from './admin-bill-detail/admin-bill-detail.component';
 
+
 const routes: Routes = [
   { path: '' ,component: IndexComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'product', component: ProductComponent },
   { path: 'product/detail', component: ProductDetailComponent },
+  { path: 'cart', component: CartComponent},
   { path: 'admin/index', component: AdminIndexComponent },
   { path: 'admin/account-info', component: AdminAccountInfoComponent },
   { path: 'admin/type', component: AdminTypeComponent },
