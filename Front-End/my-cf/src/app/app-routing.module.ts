@@ -19,6 +19,7 @@ import { AdminBillDetailComponent } from './admin-bill-detail/admin-bill-detail.
 
 const routes: Routes = [
   { path: '' ,component: IndexComponent },
+  { path: 'index' ,component: IndexComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'product', component: ProductComponent },

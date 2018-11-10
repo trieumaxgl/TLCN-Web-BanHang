@@ -1,48 +1,5 @@
 <div class="wrapper">
-    <div class="sidebar" data-background-color="white" data-active-color="danger">
-        <div class="sidebar-wrapper">
-              <div class="logo">
-                  <a href="admin/index" class="simple-text">
-                      Cf 81
-                  </a>
-              </div>
-  
-              <ul class="nav">
-                  <li>
-                      <a href="admin/account-info">
-                          <i class="ti-user"></i>
-                          <p>Thông tin cá nhân</p>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="admin/type">
-                          <i class="ti-direction-alt"></i>
-                          <p>Quản lý cà phê</p>
-                      </a>
-                  </li>
-                  <li >
-                      <a href="admin/member">
-                          <i class="ti-menu"></i>
-                          <p>Quản lý khách hàng</p>
-                      </a>
-                  </li>
-                  <li class="active">
-                      <a href="admin/bill">
-                          <i class="ti-pencil-alt"></i>
-                          <p>Thông kê hóa đơn</p>
-                      </a>
-                  </li>
-                  
-                  <li class="active-pro">
-                      <a href="admin/index">
-                          <i class="ti-home"></i>
-                          <p>Xem trang chủ</p>
-                      </a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  
+    <app-admin-menu></app-admin-menu>
       <div class="main-panel">
       <nav class="navbar navbar-default">
               <div class="container-fluid">
@@ -87,14 +44,7 @@
               <div class="container-fluid">
                   <div class="row">
                       <div class="col-md-12">
-                          <div class="row">
-                              <div class="btn-group" style="float: left; padding-bottom: 15px;padding-left: 17px;">
-                                  <form action="searchAccount" method="post">
-                                      <input style="float: left; width: 75%" class="form-control border-input" type="text" name="search" placeholder="Search">
-                                      <button type="submit" style="float: right; margin-top: 2px;" class="btn btn-default"><i class="ti-search"></i></button>
-                                  </form>
-                              </div>
-                          </div>
+                         
                           <div class="card">
                               <div class="header" style="float: left;">
                                   <h4 class="title">Danh sách hóa đơn</h4>
@@ -103,14 +53,18 @@
                              
                               <div class="clearfix"></div>
                               <div class="content table-responsive table-full-width">
-                                  <table id="tablepaging" class="table table-striped">
+                                  <table datatable class="row-border hover">
                                       <thead>
-                                          <th>ID</th>
-                                          <th>Tên khách hàng</th>
-                                          <th>Email</th>
-                                          <th>Số điện thoại</th>
-                                          <th>Tổng tiền</th>
-                                          <th>Chi tiết hóa đơn</th>
+                                          <tr>
+                                                <th>ID</th>
+                                                <th>Tên khách hàng</th>
+                                                <th>Email</th>
+                                                <th>Số điện thoại</th>
+                                                <th>Tổng tiền</th>
+                                                <th>Chi tiết hóa đơn</th>
+                                                <th></th>
+                                          </tr>
+                                          
                                       </thead>
                                       <tbody>
                                           
@@ -126,7 +80,7 @@
                                                   <td>trieu@gmail.com</td>
                                                   <td>012365789</td>
                                                   <td>1000000 vnđ</td>
-                                                  <td><a href="admin/bill/detail" 
+                                                  <td><a  [routerLink] = "['/admin/bill/detail']" 
                                                   style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a></td>
                                                   <td><a href="#" onclick="return getConfirmation();" 
                                                   style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a></td>

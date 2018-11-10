@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DataTablesModule } from 'angular-datatables';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -20,6 +21,7 @@ import { AdminTypeComponent } from './admin-type/admin-type.component';
 import { AdminTypeDetailComponent } from './admin-type-detail/admin-type-detail.component';
 import { ModalAccountInfoComponent } from './modal-account-info/modal-account-info.component';
 import { CartComponent } from './cart/cart.component';
+import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 
 @NgModule({
   declarations: [
@@ -41,10 +43,12 @@ import { CartComponent } from './cart/cart.component';
     AdminTypeDetailComponent,
     ModalAccountInfoComponent,
     CartComponent,
+    AdminMenuComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,8 +27,8 @@ $(document).ready(function(){
         pd.initRightMenu();
     }
 
-    //  Activate the tooltips
-    $('[rel="tooltip"]').tooltip();
+    // //  Activate the tooltips
+    // $('[rel="tooltip"]').tooltip();
 
 });
 
