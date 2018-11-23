@@ -32,6 +32,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.3.RELEASE/spring-context-4.0.3.RELEASE.jar" />
           <entry name="$MAVEN_REPOSITORY$/joda-time/joda-time/2.9/joda-time-2.9.jar" />
         </processorPath>
+        <module name="admin-service" />
         <module name="nu-service" />
         <module name="user-service" />
       </profile>
@@ -42,6 +43,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="admin-service" options="-Amapstruct.defaultComponentModel=spring" />
       <module name="nu-service" options="-Amapstruct.defaultComponentModel=spring" />
       <module name="user-service" options="-Amapstruct.defaultComponentModel=spring" />
     </option>
