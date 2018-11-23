@@ -12,6 +12,7 @@ import { AdminIndexComponent } from './admin-index/admin-index.component';
 import { AdminAccountInfoComponent } from './admin-account-info/admin-account-info.component';
 import { AdminMemberComponent } from './admin-member/admin-member.component';
 import { AdminTypeComponent } from './admin-type/admin-type.component';
+import { AdminTypeAddComponent } from './admin-type-add/admin-type-add.component';
 import { AdminTypeDetailComponent } from './admin-type-detail/admin-type-detail.component';
 import { AdminBillComponent } from './admin-bill/admin-bill.component';
 import { AdminBillDetailComponent } from './admin-bill-detail/admin-bill-detail.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'admin/index', component: AdminIndexComponent },
   { path: 'admin/account-info', component: AdminAccountInfoComponent },
   { path: 'admin/type', component: AdminTypeComponent },
+  { path: 'admin/type/add', component: AdminTypeAddComponent },
   { path: 'admin/type/detail', component: AdminTypeDetailComponent },
   { path: 'admin/member', component: AdminMemberComponent },
   { path: 'admin/bill', component: AdminBillComponent },

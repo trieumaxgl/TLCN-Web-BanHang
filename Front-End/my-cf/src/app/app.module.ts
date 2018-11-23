@@ -22,6 +22,7 @@ import { AdminTypeDetailComponent } from './admin-type-detail/admin-type-detail.
 import { ModalAccountInfoComponent } from './modal-account-info/modal-account-info.component';
 import { CartComponent } from './cart/cart.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
+import { AdminTypeAddComponent } from './admin-type-add/admin-type-add.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
     ModalAccountInfoComponent,
     CartComponent,
     AdminMenuComponent,
+    AdminTypeAddComponent,
   ],
   imports: [
     BrowserModule,
