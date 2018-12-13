@@ -1,4 +1,4 @@
-package hcmute.edu.vn.nuservice.model;
+package hcmute.edu.vn.adservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +20,7 @@ public class Permission {
     private String name;
 
     private int status;
+
     @ManyToMany
     @JoinTable(
             name = "per_role",

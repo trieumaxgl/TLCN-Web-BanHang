@@ -12,7 +12,7 @@
         <module name="TLCN_Microservices_WebBanHang" />
         <module name="TLCN_Microservices_WebTinTuc" />
       </profile>
-      <profile name="Annotation profile for userservice" enabled="true">
+      <profile name="Annotation profile for nu-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -32,19 +32,24 @@
           <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.3.RELEASE/spring-context-4.0.3.RELEASE.jar" />
           <entry name="$MAVEN_REPOSITORY$/joda-time/joda-time/2.9/joda-time-2.9.jar" />
         </processorPath>
-        <module name="admin-service" />
+        <module name="ad-service" />
         <module name="nu-service" />
-        <module name="user-service" />
+        <module name="u-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="admin-service" target="1.8" />
       <module name="demo" target="1.8" />
+      <module name="test-sv" target="1.8" />
+      <module name="user-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ad-service" options="-Amapstruct.defaultComponentModel=spring" />
       <module name="admin-service" options="-Amapstruct.defaultComponentModel=spring" />
       <module name="nu-service" options="-Amapstruct.defaultComponentModel=spring" />
+      <module name="u-service" options="-Amapstruct.defaultComponentModel=spring" />
       <module name="user-service" options="-Amapstruct.defaultComponentModel=spring" />
     </option>
   </component>
