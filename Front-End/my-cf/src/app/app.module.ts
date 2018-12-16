@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DataTablesModule } from 'angular-datatables';
-
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule, HttpInterceptor, HttpHandler, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +25,7 @@ import { ModalAccountInfoComponent } from './modal-account-info/modal-account-in
 import { CartComponent } from './cart/cart.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminTypeAddComponent } from './admin-type-add/admin-type-add.component';
+import {NuServiceService} from './nu-service/nu-service.service';
 
 @NgModule({
   declarations: [
@@ -50,9 +53,14 @@ import { AdminTypeAddComponent } from './admin-type-add/admin-type-add.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DataTablesModule
+    DataTablesModule,
+    FormsModule,
+    CommonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    NuServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
