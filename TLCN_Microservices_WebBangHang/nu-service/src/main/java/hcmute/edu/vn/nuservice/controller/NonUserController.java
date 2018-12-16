@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/nuser/")
+@CrossOrigin
 public class NonUserController {
     @Autowired
     private UserService userService;
