@@ -25,6 +25,17 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
+    public Items dtoToItem(ItemDTO itemDTO){
+        Items items = new Items();
+        items.setId(itemDTO.getId());
+        items.setName(itemDTO.getName());
+        items.setStatus(itemDTO.getStatus());
+        items.setPrice(itemDTO.getPrice());
+        items.setDescription(itemDTO.getDescription());
+        return items;
+    }
+
+    @Override
     public Items saveItem(Items items) {
         return itemRepository.save(items);
     }

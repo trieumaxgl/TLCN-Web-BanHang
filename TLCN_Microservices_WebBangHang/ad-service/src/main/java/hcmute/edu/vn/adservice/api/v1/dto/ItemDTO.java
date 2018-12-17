@@ -13,7 +13,7 @@ public class ItemDTO {
 
     private String description;
 
-    private String status;
+    private int status;
 
     private Long price;
 

@@ -15,5 +15,5 @@ public interface ItemMapper {
     @Mappings({
             @Mapping(source = "types.id",target = "typesId")
     })
-    ItemDTO ItemToItemDTO(Items product);
+    ItemDTO ItemToItemDTO(Items items);
 }

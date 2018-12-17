@@ -9,6 +9,8 @@ public interface ItemService {
 
     ItemDTO findById(int id, int status);
 
+    Items dtoToItem(ItemDTO itemDTO);
+
     Items saveItem(Items items);
 
     Items deleteItem(int id,int status);

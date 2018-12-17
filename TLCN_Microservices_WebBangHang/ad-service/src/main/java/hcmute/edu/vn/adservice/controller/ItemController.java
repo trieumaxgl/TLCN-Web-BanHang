@@ -6,6 +6,7 @@ import hcmute.edu.vn.adservice.api.v1.dto.ItemDTO;
 import hcmute.edu.vn.adservice.api.v1.mapper.ItemMapper;
 import hcmute.edu.vn.adservice.model.Items;
 import hcmute.edu.vn.adservice.service.ItemService;
+import hcmute.edu.vn.adservice.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +16,16 @@ import java.net.URI;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/items")
+@RequestMapping("api/v1/admin/items")
 public class ItemController {
     @Autowired
     ItemService itemService;
 
     @Autowired
     ItemMapper itemMapper;
+
+    @Autowired
+    TypeService typeService;
 
     @PostMapping("/load")
     public DataReturnList<ItemDTO> getAllItems() {
@@ -48,12 +52,14 @@ public class ItemController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Object> createItem(@RequestBody Items items) {
-        Items saveItem = itemService.saveItem(items);
+    public ResponseEntity<Object> createItem(@RequestBody ItemDTO itemDTO) {
+        Items items = itemService.dtoToItem(itemDTO);
+        items.setTypes(typeService.findById(itemDTO.getTypesId(),1));
+        itemService.saveItem(items);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(
-                        saveItem.getId()
+                        items.getId()
                 ).toUri();
         return ResponseEntity.created(location).build();
     }
