@@ -23,13 +23,13 @@ public class ItemController {
     @Autowired
     ItemMapper itemMapper;
 
-    @GetMapping
+    @PostMapping("/load")
     public DataReturnList<ItemDTO> getAllItems() {
 
         //get all product was not deleted
         DataReturnList<ItemDTO> dataReturnList = new DataReturnList<>();
         dataReturnList.setMessage("get all items");
-        dataReturnList.setData(itemService.findAll(0)
+        dataReturnList.setData(itemService.findAll(1)
                 .stream()
                 .map(itemMapper::ItemToItemDTO)
                 .collect(Collectors.toList()));
@@ -47,7 +47,7 @@ public class ItemController {
         return returnOne;
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Object> createItem(@RequestBody Items items) {
         Items saveItem = itemService.saveItem(items);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -58,7 +58,7 @@ public class ItemController {
         return ResponseEntity.created(location).build();
     }
 
-    @PutMapping()
+    @PutMapping("/update")
     public ResponseEntity<Object> updateItem(Items items) {
         return ResponseEntity.ok(itemService.saveItem(items));
     }
