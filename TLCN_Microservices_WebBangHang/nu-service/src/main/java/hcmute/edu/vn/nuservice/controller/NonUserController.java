@@ -4,11 +4,14 @@ import hcmute.edu.vn.nuservice.api.v1.data.DataReturnOne;
 import hcmute.edu.vn.nuservice.api.v1.dto.ItemDto;
 import hcmute.edu.vn.nuservice.api.v1.dto.UserDto;
 import hcmute.edu.vn.nuservice.api.v1.data.DataReturnList;
+import hcmute.edu.vn.nuservice.exception.NotFoundException;
 import hcmute.edu.vn.nuservice.api.v1.mapper.UserMapper;
 import hcmute.edu.vn.nuservice.api.v1.mapper.ItemMapper;
 import hcmute.edu.vn.nuservice.model.Items;
 import hcmute.edu.vn.nuservice.model.User;
+import hcmute.edu.vn.nuservice.model.Role;
 import hcmute.edu.vn.nuservice.service.ItemService;
+import hcmute.edu.vn.nuservice.service.RoleService;
 import hcmute.edu.vn.nuservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,15 +36,33 @@ public class NonUserController {
     private ItemMapper itemMapper;
 
 
+
     @PostMapping("/register")
     public UserDto register(@RequestBody User user){
         user.setStatus(1);
         return userMapper.userToUserDto(userService.registerUser(user));
     }
 
-    @PostMapping("/login/{userName}/{passWord}")
-    public UserDto login(@PathVariable String userName, @PathVariable String passWord){
-        return userMapper.userToUserDto(userService.findByEmailAndPassWord(userName, passWord));
+    @PostMapping("/login/{email}/{passWord}")
+    public DataReturnOne<UserDto> login(@PathVariable String email, @PathVariable String passWord){
+        //return userMapper.userToUserDto(userService.findByEmailAndPassWord(email, passWord));
+
+        DataReturnOne<UserDto> dataReturnOne = new DataReturnOne<>();
+        User user = new User();
+        try {
+            user = userService.findByEmailAndPassWord(email, passWord);
+            user.setRoles(userService.findByEmailAndPassWord(email, passWord).getRoles());
+            dataReturnOne.setMessage("Đăng nhập thành công");
+            dataReturnOne.setData(userMapper.userToUserDto(user));
+        }
+        catch (NotFoundException ex) {
+            dataReturnOne.setSuccess("false");
+            dataReturnOne.setMessage("Sai Email hoặc Mật khẩu");
+
+        }
+
+
+        return dataReturnOne;
     }
 
     @GetMapping("/items")

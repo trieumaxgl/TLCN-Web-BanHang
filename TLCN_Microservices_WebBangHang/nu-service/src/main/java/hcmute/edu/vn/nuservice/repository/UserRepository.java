@@ -1,5 +1,6 @@
 package hcmute.edu.vn.nuservice.repository;
 
+import hcmute.edu.vn.nuservice.model.Role;
 import hcmute.edu.vn.nuservice.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -26,21 +26,49 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
-    localStorage.setItem("email","");
+    if(localStorage.email){
+      this.router.navigate(["/"]);
+    }
   }
-  login() {
-    this.nuService.login(this.user).pipe(first()).subscribe(res => {
-      if(res.success == true){
-        localStorage.setItem("email",res.data.email);
-        this.router.navigate(['/index']);
-      }
-      else{
-        this.error = res.message ;
-      }
-    }, err => {
-      console.log("login fail :" + err);
-      this.error = err;
-    });
+  // login() {
+  //   this.nuService.login(this.user)
+  //   .pipe(first())
+  //   .subscribe(res => {
+  //     if(res.success == true){
+  //       localStorage.setItem("email",res.data.email);
+  //       this.router.navigate(['/index']);
+  //     }
+  //     else{
+  //       this.error = res.message ;
+  //     }
+  //   }, err => {
+  //     console.log("login fail :" + err);
+  //     this.error = err;
+  //   });
 
+  // }
+  login()  {
+    alert("Đăng nhập thành công !!")
+    this.nuService.login(this.user)
+      .pipe(first())
+      .subscribe(res => {
+        console.log(res.email);
+        console.log(res.data.role);
+        if(res.success == "true")
+        {
+          localStorage.setItem("email", res.data.email)
+          localStorage.setItem("role", res.data.role)
+          this.router.navigate(["/"]);
+        }
+        else
+        {
+            this.error = res.message
+        }
+      }, err => {
+        console.log(err)
+      })      
+  }
+  logout(){
+    localStorage.clear()
   }
 }

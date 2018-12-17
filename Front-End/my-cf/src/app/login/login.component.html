@@ -6,25 +6,28 @@
         <img src="../../assets/member/images/img-01.png" alt="IMG">
       </div>
 
-      <form class="login100-form validate-form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+      <form class="login100-form validate-form" method = "POST" (ngSubmit) = "f.form.valid && login()" #f = "ngForm" action="" novalidate>
         <span class="login100-form-title">
           Thành Viên Đăng Nhập
         </span>
 
-        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-          <input  [(ngModel)]="user.email" class="input100" type="text" name="email" placeholder="Email"  
-          #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required >
+        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+          <input [(ngModel)]="user.email" class="input100"id = "user-name" type="text" name="email"
+           placeholder="Email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required>
           <span class="focus-input100">
           </span>
           <span class="symbol-input100">
             <i class="fa fa-envelope" aria-hidden="true"></i>
           </span>
         </div>
-       
+        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+          <div *ngIf="email.error.required" style="color: red">Email khong duoc trong</div>
+        </div>
 
-        <div class="wrap-input100 validate-input" data-validate = "Password is required">
-          <input  [(ngModel)]="user.password" class="input100" type="password" name="password" placeholder="Mật khẩu"
-          #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required >
+
+        <div class="wrap-input100 validate-input" data-validate="Password is required">
+          <input [(ngModel)]="user.password" class="input100" type="password" name="password" placeholder="Mật khẩu" #password="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required>
           <span class="focus-input100">
 
           </span>
@@ -32,11 +35,12 @@
             <i class="fa fa-lock" aria-hidden="true"></i>
           </span>
         </div>
-       
+        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+          <div *ngIf="password.error.required" style="color: red">Password khong duoc trong</div>
+        </div>
+
         <div class="container-login100-form-btn">
-          <button type="submit" class="login100-form-btn">
-            Đăng Nhập
-          </button>
+          <button type="submit" class="login100-form-btn">Đăng Nhập</button>
         </div>
 
         <div class="text-center p-t-12">
@@ -55,6 +59,9 @@
           </a>
         </div>
       </form>
+      <div *ngIf="error" class="alert alert-danger">
+        <span>{{error}}</span>
+      </div>
     </div>
   </div>
 </div>

@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserService {
     CrudRepository<User, Integer> getRepo();
-    User findByEmailAndPassWord(String userName, String passWord);
+    User findByEmailAndPassWord(String email, String passWord);
     User registerUser(User user);
 }
