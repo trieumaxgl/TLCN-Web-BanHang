@@ -30,6 +30,9 @@ public class NonUserController {
     private ItemService itemService;
 
     @Autowired
+    private RoleService roleService;
+
+    @Autowired
     private UserMapper userMapper;
 
     @Autowired
@@ -51,7 +54,7 @@ public class NonUserController {
         User user = new User();
         try {
             user = userService.findByEmailAndPassWord(email, passWord);
-            user.setRoles(userService.findByEmailAndPassWord(email, passWord).getRoles());
+
             dataReturnOne.setMessage("Đăng nhập thành công");
             dataReturnOne.setData(userMapper.userToUserDto(user));
         }

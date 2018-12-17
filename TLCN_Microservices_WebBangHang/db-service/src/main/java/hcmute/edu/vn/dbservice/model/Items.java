@@ -24,7 +24,7 @@ public class Items {
 
     private String description;
 
-    private String status;
+    private int status;
 
     private Long price;
 

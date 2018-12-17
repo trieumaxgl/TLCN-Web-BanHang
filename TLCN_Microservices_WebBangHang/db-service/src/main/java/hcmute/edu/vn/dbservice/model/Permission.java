@@ -20,6 +20,8 @@ public class Permission {
 
     private String name;
 
+    int status;
+
     @ManyToMany
     @JoinTable(
             name = "per_role",
