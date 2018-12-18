@@ -1,11 +1,11 @@
 package hcmute.edu.vn.dbservice.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Set;
 
 @Entity(name = "types")
@@ -24,5 +24,6 @@ public class Type {
     private int status;
 
    @OneToMany(mappedBy = "types")
+   @JsonBackReference
     private Set<Items> items;
 }

@@ -1,5 +1,7 @@
 package hcmute.edu.vn.uservice.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -44,9 +46,11 @@ public class User {
     private Cart cart;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Role roles;
 
     @OneToMany(mappedBy = "user")
+    @JsonBackReference
     private Set<Bill> bills;
 
 }

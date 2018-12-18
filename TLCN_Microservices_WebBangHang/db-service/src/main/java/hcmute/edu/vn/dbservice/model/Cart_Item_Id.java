@@ -1,5 +1,6 @@
 package hcmute.edu.vn.dbservice.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,8 +18,10 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Cart_Item_Id implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Cart cart;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Items items;
 }

@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/permissions")
+@CrossOrigin
 public class PermissionController {
     @Autowired
     PermissionService permissionService;

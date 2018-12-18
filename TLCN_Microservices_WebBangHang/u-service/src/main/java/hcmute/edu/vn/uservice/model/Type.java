@@ -1,5 +1,6 @@
 package hcmute.edu.vn.uservice.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,5 +24,6 @@ public class Type {
     private int status;
 
    @OneToMany(mappedBy = "types")
+   @JsonBackReference
     private Set<Items> items;
 }

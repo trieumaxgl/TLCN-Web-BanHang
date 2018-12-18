@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/admin/items")
+@CrossOrigin
 public class ItemController {
     @Autowired
     ItemService itemService;
@@ -46,7 +47,7 @@ public class ItemController {
         //get all product was not deleted
         DataReturnOne<ItemDTO> returnOne = new DataReturnOne<>();
         returnOne.setMessage("get item");
-        returnOne.setData(itemService.findById(id, 0));
+        returnOne.setData(itemService.findById(id, 1));
 
         return returnOne;
     }
@@ -64,15 +65,16 @@ public class ItemController {
         return ResponseEntity.created(location).build();
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<Object> updateItem(Items items) {
+    @PostMapping("/update/{id}")
+    public ResponseEntity<Object> updateItem(@RequestBody ItemDTO itemDTO,@PathVariable(value="id") int id) {
+        Items items = itemService.updateItem(itemDTO,id);
+        items.setTypes(typeService.findById(itemDTO.getTypesId(),1));
         return ResponseEntity.ok(itemService.saveItem(items));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteMajor(@PathVariable(value = "id") int id){
-
-        //set delflag was deleted
-        return ResponseEntity.ok(itemService.deleteItem(id, 1));
+    @PostMapping("/delete/{id}")
+    public ResponseEntity<Object> deleteItem(@PathVariable(value = "id") int id) {
+        return ResponseEntity.ok(itemService.deleteItem(id,0));
     }
+
 }

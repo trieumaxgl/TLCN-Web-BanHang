@@ -1,5 +1,7 @@
 package hcmute.edu.vn.nuservice.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +20,7 @@ public class Bill {
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonManagedReference
     private User user;
 
     private String address;
@@ -31,6 +34,7 @@ public class Bill {
     private int status;
 
     @OneToMany(mappedBy = "id.bill")
+    @JsonBackReference
     private Set<Bill_Item> bill_items;
 
 }

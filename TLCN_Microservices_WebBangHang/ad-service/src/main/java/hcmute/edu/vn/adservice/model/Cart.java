@@ -1,6 +1,7 @@
 package hcmute.edu.vn.adservice.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,5 +22,6 @@ public class Cart {
     private User user;
 
     @OneToMany(mappedBy = "id.cart")
+    @JsonBackReference
     private Set<Cart_Item> cart_items;
 }

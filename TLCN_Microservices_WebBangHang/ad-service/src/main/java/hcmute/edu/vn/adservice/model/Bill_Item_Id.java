@@ -1,5 +1,6 @@
 package hcmute.edu.vn.adservice.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,9 +19,11 @@ import java.io.Serializable;
 public class Bill_Item_Id implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Bill bill;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Items items;
 
 

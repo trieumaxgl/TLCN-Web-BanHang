@@ -1,12 +1,13 @@
 package hcmute.edu.vn.dbservice.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Set;
 
 @Entity(name = "roles")
@@ -14,15 +15,17 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Role {
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String name;
 
     @OneToMany(mappedBy = "roles")
+    @JsonBackReference
     private Set<User> user_role;
     @ManyToMany(mappedBy = "roles")
+    @JsonManagedReference
     private Set<Permission> permissions;
 }
 

@@ -15,5 +15,7 @@ public interface ItemService {
 
     Items deleteItem(int id,int status);
 
+    Items updateItem(ItemDTO itemDTO, int id);
+
     List<Items> findAll(int status);
 }

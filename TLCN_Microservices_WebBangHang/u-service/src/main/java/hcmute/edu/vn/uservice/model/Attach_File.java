@@ -1,5 +1,6 @@
 package hcmute.edu.vn.uservice.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class Attach_File {
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Items items;
 
     private byte[] image;

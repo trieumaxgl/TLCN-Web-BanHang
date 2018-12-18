@@ -1,11 +1,11 @@
 package hcmute.edu.vn.dbservice.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity(name = "attach_file")
 @Data
@@ -18,6 +18,7 @@ public class Attach_File {
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Items items;
 
     private byte[] image;

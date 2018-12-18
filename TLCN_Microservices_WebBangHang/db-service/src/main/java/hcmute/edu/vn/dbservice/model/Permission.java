@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Set;
 
 @Entity(name = "permission")
@@ -16,11 +15,11 @@ public class Permission {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
 
     private String name;
 
-    int status;
+    private int status;
 
     @ManyToMany
     @JoinTable(

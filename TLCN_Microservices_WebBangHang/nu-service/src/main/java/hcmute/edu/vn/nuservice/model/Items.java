@@ -1,5 +1,7 @@
 package hcmute.edu.vn.nuservice.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +19,7 @@ public class Items {
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Type types;
 
     private String name;
@@ -28,14 +31,18 @@ public class Items {
     private Long price;
 
     @OneToMany(mappedBy = "items")
+    @JsonBackReference
     private Set<Attach_File> attachFiles;
 
     @ManyToMany(mappedBy = "items")
+    @JsonManagedReference
     private Set<Sale> sales;
 
     @OneToMany(mappedBy = "id.items")
+    @JsonBackReference
     private Set<Bill_Item> bill_items;
 
     @OneToMany(mappedBy = "id.items")
+    @JsonBackReference
     private Set<Cart_Item> cart_items;
 }
