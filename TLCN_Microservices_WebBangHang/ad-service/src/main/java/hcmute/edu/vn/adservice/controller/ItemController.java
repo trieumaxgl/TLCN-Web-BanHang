@@ -2,9 +2,12 @@ package hcmute.edu.vn.adservice.controller;
 
 import hcmute.edu.vn.adservice.api.v1.data.DataReturnList;
 import hcmute.edu.vn.adservice.api.v1.data.DataReturnOne;
+import hcmute.edu.vn.adservice.api.v1.dto.Attach_FileDTO;
 import hcmute.edu.vn.adservice.api.v1.dto.ItemDTO;
 import hcmute.edu.vn.adservice.api.v1.mapper.ItemMapper;
+import hcmute.edu.vn.adservice.model.Attach_File;
 import hcmute.edu.vn.adservice.model.Items;
+import hcmute.edu.vn.adservice.service.Attach_FileService;
 import hcmute.edu.vn.adservice.service.ItemService;
 import hcmute.edu.vn.adservice.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +25,8 @@ public class ItemController {
     @Autowired
     ItemService itemService;
 
+    @Autowired
+    Attach_FileService attach_fileService;
     @Autowired
     ItemMapper itemMapper;
 
@@ -76,5 +81,15 @@ public class ItemController {
     public ResponseEntity<Object> deleteItem(@PathVariable(value = "id") int id) {
         return ResponseEntity.ok(itemService.deleteItem(id,0));
     }
-
+    @PostMapping("/image")
+    public ResponseEntity<Object> createImage(@RequestBody Attach_FileDTO attachFileDTO) {
+        Attach_File attachFile = attach_fileService.dtoToAttachFile(attachFileDTO);
+        attachFile.setItems(itemService.findById(attachFileDTO.getItemId()));
+        attach_fileService.saveAttachFile(attachFile);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .buildAndExpand(
+                        attachFile.getId()
+                ).toUri();
+        return ResponseEntity.created(location).build();
+    }
 }

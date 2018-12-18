@@ -29,6 +29,14 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
+    public Items findById(int id) {
+        Optional<Items> items = itemRepository.findById(id);
+        if(!items.isPresent())
+            throw new NotFoundException("Item Not Found !!!");
+        return items.get();
+    }
+
+    @Override
     public Items dtoToItem(ItemDTO itemDTO){
         Items items = new Items();
         items.setId(itemDTO.getId());
