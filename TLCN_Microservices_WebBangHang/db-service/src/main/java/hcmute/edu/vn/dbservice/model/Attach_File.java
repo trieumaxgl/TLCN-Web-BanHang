@@ -21,6 +21,6 @@ public class Attach_File {
     @JsonManagedReference
     private Items items;
 
-    private byte[] image;
+    private String image;
 
 }

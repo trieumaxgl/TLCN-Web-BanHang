@@ -24,7 +24,7 @@ public class User {
 
     private int gender;
 
-    private byte[] avatar;
+    private String avatar;
 
     private String address;
 
