@@ -46,51 +46,41 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="btn-group" style=" padding-bottom: 15px;padding-left: 20px;">
-                        <a href="viewListRoom?hotelID=${hotelid}&hotelName=${hotelName}" type="button" class="btn btn-default">
+                        <a href="" type="button" class="btn btn-default">
                             <i class="ti-arrow-left"></i>&nbsp;&nbsp;back
                         </a>
                     </div>
                 </div>
-
                 <div class="row">
-
-
                     <div class="col-md-12">
-
                         <div class="card">
                             <div class="header" style="float: left;">
                                 <h4 class="title">Thông tin cà phê</h4>
                                 <p class="category"></p>
-
                             </div>
-
                             <div class="clearfix"></div>
                             <div class="content">
-                                <form action="updateRoom" method="post">
-                                    <input type="hidden" name="roomid" value="${roomInfo.roomid}" />
-                                    <input type="hidden" name="hotelID" value="${hotelid}" />
-                                    <input type="hidden" name="hotelName" value="${hotelName}" />
+                                <form [formGroup]="formImage" method="POST" (ngSubmit)="createItem()"  >
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Tên cà phê</label>
-                                                <input type="text" class="form-control border-input" name="roomname" value="Cà phê 1 " required>
+                                                <input formControlName="formName" [(ngModel)]="item.name"   type="text" class="form-control border-input" name="name" placeholder="Tên cà phê" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="hidden" id="loaiphong" value="${roomInfo.roomcategoryid}" />
+                                                <input type="hidden" id="loaiphong" value="" />
                                                 <label>Loại cà phê</label>
-                                                <select id="listloaiphong" name="Listloaiphong" class="form-control border-input">
-                                                    <option class="dropdown" value="1">Hạt</option>
-                                                    <option class="dropdown" value="2">Ran xay</option>
-                                                    <option class="dropdown" value="3">Bột</option>
+                                                <select formControlName="formTypesId" [(ngModel)]="item.typesId"  id="loaiCaPhe" name="typeId"  class="form-control border-input">
+                                                    <option class="dropdown" selected="selected" [value]= "1"  >Bột</option>
+                                                    <option class="dropdown" [value]= "2"  >Hạt</option>
+                                                    <option class="dropdown" [value]= "3"  >Rang xay</option>
                                                 </select>
+        
                                             </div>
                                         </div>
                                     </div>
-
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -99,7 +89,7 @@
                                                     <span style="border: 1px solid #ccc5b9;" class="input-group-addon ">
                                                         <i style="font-size: 15px;" class="ti-money"></i>
                                                     </span>
-                                                    <input type="number" class="form-control border-input" name="price" value="" required>
+                                                    <input formControlName="formPrice" [(ngModel)]="item.price"   type="number" class="form-control border-input" name="price" value="" required>
 
                                                 </div>
                                             </div>
@@ -107,16 +97,15 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Trạng thái</label>
-                                                <input type="text" class="form-control border-input" disabled placeholder="Status" name="r_status" value="Còn hàng">
+                                                <input type="text" class="form-control border-input" disabled placeholder="Status" value="Còn hàng">
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Mô tả</label>
-                                                <textarea rows="7" class="form-control border-input" name="r_description" placeholder="Here can be your description"></textarea>
+                                                <textarea formControlName="formDescription" [(ngModel)]="item.description"  rows="7" class="form-control border-input" name="description" placeholder="Here can be your description" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -126,10 +115,9 @@
                                                 <i class="ti-trash"></i>&nbsp;Xóa ảnh</a>
                                         </div>
                                         <div class="text-center" style="padding-top:10px; padding-bottom: 15px; float:right;">
-                                            <a href="#" type="button" class="btn btn-default" data-toggle="modal" data-target="#changeImage" style=" font-size: 14px;">
-                                                <i class="ti-plus"></i>&nbsp;Thêm ảnh</a>
-                                        </div>
-
+                                            <input type="file"  id="file" name="avatar" (change)="onChangedImage($event)" #fileInput accept=".jpg, .jpeg, .png, .gif" style="margin-left: 5px;">
+                                            <span class="file-custom" (click)="fileInput.click()"></span>
+                                                        </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="cntr mt20">
@@ -137,44 +125,51 @@
                                                 <div class="ps-current" style="height: 400px;">
                                                     <ul>
                                                         <li class="elt_1" style="display: list-item; opacity: 1; z-index: 2;">
-                                                            <img src="http://static.pgwjs.com/img/pg/slider/paris.jpg" alt="Paris, France">
+                                                            <img [src]="selectedImg" alt="Card image" style="width:75%;height:100% ;background-position: center;background-repeat: no-repeat; background-size: cover;">
                                                         </li>
                                                     </ul>
                                                     <span class="ps-caption" style="display: block; font-size: 26px;">
                                                         Cà Phê</span>
                                                 </div>
                                                 <ul class="ps-list" style="display: block;">
-                                                    <li class="elt_1" style="cursor: pointer; opacity: 1; width: 25%; height: 100px;">
-                                                        <img src="http://static.pgwjs.com/img/pg/slider/paris.jpg" alt="Paris, France" data-description="Eiffel Tower and Champ de Mars">
-                                                        <span>Cà phê 1</span>
+                                                    <li class="elt_1" style="cursor: pointer; opacity: 1; width: 25%; height: 25%;">
+                                                        <img [src]="selectedImg" alt="Card image" style="background-position: center;background-repeat: no-repeat; background-size: cover;">
+                                                        <span>Cà phê </span>
                                                     </li>
-                                                    <li class="elt_2" style="cursor: pointer; opacity: 0.6; width: 25%; height: 100px;">
-                                                        <img src="http://static.pgwjs.com/img/pg/slider/montreal_mini.jpg" alt="Montréal, Canada" data-large-src="http://static.pgwjs.com/img/pg/slider/montreal.jpg">
-                                                        <span>Cà phê 1</span>
-                                                    </li>
-                                                    <li class="elt_3" style="cursor: pointer; opacity: 0.6; width: 25%; height: 100px;">
-                                                        <img src="http://static.pgwjs.com/img/pg/slider/shanghai.jpg">
-                                                        <span>Cà phê 1</span>
-                                                    </li>
-                                                    <li class="elt_4" style="cursor: pointer; opacity: 0.6; width: 25%; height: 100px;">
-                                                        <a target="_blank" rel="noopener">
-                                                            <img src="http://static.pgwjs.com/img/pg/slider/new-york.jpg">
-                                                            <span>Cà phê 1</span>
-                                                        </a>
-                                                    </li>
+        
                                                 </ul>
                                             </div>
                                         </div>
-
                                     </div>
                                     <div style="text-align: center;">
-                                        <button type="submit" class="btn btn-info btn-fill btn-lg">Thêm Cà Phê</button>
+                                        <button type="submit" class="btn btn-info btn-fill btn-lg"
+                                        [disabled]="fileInput.value==''" >
+                                        <i class="far fa-check-square" style="margin-right: 5px;" (click)="fileInput.click()"></i>Thêm Cà Phê</button>
                                     </div>
                                     <div class="clearfix"></div>
 
                                 </form>
-                            </div>
+                                <!-- <form class="form" [formGroup]="formImage" method="POST" (ngSubmit)="onSaveImage()"
+                                novalidate>
+                                  <div class="row">
+                                    <div class="form-group col-md-6 mb-2">
+                                      <label>Ảnh đại diện</label>
+                                      <label id="projectinput8" class="file center-block">
+                                        <input type="file" id="file" name="avatar" (change)="onChangedImage($event)" #fileInput accept=".jpg, .jpeg, .png, .gif" style="margin-left: 5px;">
+                                        <span class="file-custom" (click)="fileInput.click()"></span>
+                                      </label>
+                                      <button type="submit" class="btn btn-primary">
+                                        <i class="far fa-check-square" style="margin-right: 5px;" (click)="fileInput.click()"></i>Lưu
+                                      </button>
+                                    </div>
+                                  </div>
+                                </form>
+                                <div class="media-left pl-2 pt-2">
+                                    <a class="profile-image"> <img class="rounded-circle img-border height-100" [src]="selectedImg" alt="Card image">
+                                    </a>
+                                  </div> -->
 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -183,7 +178,7 @@
 
         <!-- Modal đổi ảnh -->
         <div class="modal fade" id="changeImage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="padding-top: 100px;">
-            <form id="imageRoom" action="uploadImageRoom?idRoom=${roomInfo.roomid}&hotelID=${hotelid}&hotelName=${hotelName}" method="post"
+            <form id="imageRoom" action="" method="post"
                 enctype="multipart/form-data">
                 <div class="modal-dialog">
                     <!-- Modal content-->

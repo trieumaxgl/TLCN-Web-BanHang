@@ -56,9 +56,15 @@ export class LoginComponent implements OnInit {
         console.log(res.data.role);
         if(res.success == "true")
         {
-          localStorage.setItem("email", res.data.email)
-          localStorage.setItem("role", res.data.role)
-          this.router.navigate(["/"]);
+          localStorage.setItem("email", res.data.email);
+          localStorage.setItem("role", res.data.role);
+          if(res.data.role == 1){
+            this.router.navigate(["/admin/index"]);
+          }
+          else
+          {
+            this.router.navigate(["/"]);
+          }
         }
         else
         {

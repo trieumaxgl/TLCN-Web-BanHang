@@ -5,7 +5,7 @@ import { Users } from '../../models/Users';
 import {Observable } from 'rxjs';
 import {of } from 'rxjs';
 
-import {HttpClient,HttpHeaders} from '@angular/common/http';
+import {HttpClient,HttpHeaders,HttpResponse} from '@angular/common/http';
 import {catchError,tap} from 'rxjs/Operators';
 
 @Injectable({

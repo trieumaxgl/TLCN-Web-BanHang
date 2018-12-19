@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  base_nu_url:'http://localhost:8082/'
+  base_nu_url:'http://localhost:8082/',
+  base_admin_url:'http://localhost:8084/'
 };
 
 /*

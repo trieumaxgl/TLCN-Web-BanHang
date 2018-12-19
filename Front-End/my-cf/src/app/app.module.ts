@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DataTablesModule } from 'angular-datatables';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpInterceptor, HttpHandler, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -26,6 +26,7 @@ import { CartComponent } from './cart/cart.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminTypeAddComponent } from './admin-type-add/admin-type-add.component';
 import {NuServiceService} from './nu-service/nu-service.service';
+import {AdServiceService} from './ad-service/ad-service.service';
 
 @NgModule({
   declarations: [
@@ -56,10 +57,12 @@ import {NuServiceService} from './nu-service/nu-service.service';
     DataTablesModule,
     FormsModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
-    NuServiceService
+    NuServiceService,
+    AdServiceService
   ],
   bootstrap: [AppComponent]
 })

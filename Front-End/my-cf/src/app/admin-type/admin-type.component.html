@@ -71,9 +71,10 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="content table-responsive table-full-width">
-                      <table datatable class="row-border hover">
+                      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
                         <thead>
                           <tr>
+                            <th>ID</th>
                             <th>Tên cà phê</th>
                             <th>Loại</th>
                             <th>Giá(0.5 Kg)</th>
@@ -83,165 +84,31 @@
                           </tr>
       
                         </thead>
-                        <tbody>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a  [routerLink] = "['/admin/type/detail']"
+                        <tbody *ngIf="items?.length != 0">
+                          <tr *ngFor="let item of items">
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td *ngIf="item.typesId == 1">Bột</td>
+                            <td *ngIf="item.typesId == 2">Hat</td>
+                            <td *ngIf="item.typesId == 3">Rang Xoay</td>
+                            <td>{{item.price}}</td>
+                            <td *ngIf="item.status == 1">Còn hàng</td>
+                            <td *ngIf="item.status == 0">Hết hàng</td>
+                            <!-- <td>{{View}}</td> -->
+                            <td><a  [routerLink] = "[]"
                               style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
                             </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
+                              <td><a href="#" onclick= ""
                               style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
                             </td>
                           </tr>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a href="#"
-                              style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
-                            </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
-                              style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a href="#"
-                              style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
-                            </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
-                              style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a href="#"
-                              style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
-                            </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
-                              style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a href="#"
-                              style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
-                            </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
-                              style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a href="#"
-                              style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
-                            </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
-                              style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a href="#"
-                              style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
-                            </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
-                              style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a href="#"
-                              style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
-                            </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
-                              style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a href="#"
-                              style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
-                            </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
-                              style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a href="#"
-                              style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
-                            </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
-                              style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a href="#"
-                              style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
-                            </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
-                              style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a href="#"
-                              style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
-                            </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
-                              style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Cà phê hạt</td>
-                            <td>Hạt</td>
-                            <td>150000$</td>
-                            <td>Còn</td>
-                            <td><a href="#"
-                              style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
-                            </td>
-                              <td><a href="#" onclick="return getConfirmation();" 
-                              style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
-                            </td>
-                          </tr>
-                         
+                                                   
                         </tbody>
+                        <tbody *ngIf="items?.length == 0">
+                            <tr>
+                              <td colspan="3" class="no-data-available">No data!</td>
+                            </tr>
+                          <tbody>
                       </table>
                     </div>
                   </div>
