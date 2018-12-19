@@ -66,8 +66,6 @@ public class ItemController {
         DataReturnOne<ItemDTO> returnOne = new DataReturnOne<>();
 
         try {
-
-
             returnOne.setMessage("Them thanh cong");
             returnOne.setSuccess("true");
             returnOne.setData(itemMapper.ItemToItemDTO(items));
@@ -75,7 +73,6 @@ public class ItemController {
         catch (NotFoundException ex) {
             returnOne.setSuccess("false");
             returnOne.setMessage("Them that bai");
-
         }
         return ResponseEntity.ok(returnOne);
     }

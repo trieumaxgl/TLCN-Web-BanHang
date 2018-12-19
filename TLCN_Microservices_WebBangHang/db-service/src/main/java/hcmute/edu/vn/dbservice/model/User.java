@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Set;
 
@@ -24,6 +25,7 @@ public class User {
 
     private int gender;
 
+    @Size(max=2000000)
     private String avatar;
 
     private String address;
