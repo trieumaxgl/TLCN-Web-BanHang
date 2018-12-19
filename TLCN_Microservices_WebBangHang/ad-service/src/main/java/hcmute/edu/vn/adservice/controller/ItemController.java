@@ -62,12 +62,10 @@ public class ItemController {
         Items items = itemService.dtoToItem(itemDTO);
         items.setTypes(typeService.findById(itemDTO.getTypesId(),1));
         itemService.saveItem(items);
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(
-                        items.getId()
-                ).toUri();
-        return ResponseEntity.created(location).build();
+        DataReturnOne<ItemDTO> returnOne = new DataReturnOne<>();
+        returnOne.setMessage("Them item thanh cong");
+        returnOne.setData(itemMapper.ItemToItemDTO(items));
+        return ResponseEntity.ok(returnOne);
     }
 
     @PostMapping("/update/{id}")
@@ -85,7 +83,6 @@ public class ItemController {
     public ResponseEntity<Object> createImage(@RequestBody Attach_FileDTO attachFileDTO) {
         Attach_File attachFile = attach_fileService.dtoToAttachFile(attachFileDTO);
         attachFile.setItems(itemService.findById(attachFileDTO.getItemId()));
-        attachFile.setItems(itemService.findByIdLast());
         attach_fileService.saveAttachFile(attachFile);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .buildAndExpand(
