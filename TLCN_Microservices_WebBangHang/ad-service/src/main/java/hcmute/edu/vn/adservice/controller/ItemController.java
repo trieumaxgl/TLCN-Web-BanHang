@@ -2,6 +2,7 @@ package hcmute.edu.vn.adservice.controller;
 
 import hcmute.edu.vn.adservice.api.v1.data.DataReturnList;
 import hcmute.edu.vn.adservice.api.v1.data.DataReturnOne;
+import hcmute.edu.vn.adservice.exception.NotFoundException;
 import hcmute.edu.vn.adservice.api.v1.dto.Attach_FileDTO;
 import hcmute.edu.vn.adservice.api.v1.dto.ItemDTO;
 import hcmute.edu.vn.adservice.api.v1.mapper.ItemMapper;
@@ -63,8 +64,19 @@ public class ItemController {
         items.setTypes(typeService.findById(itemDTO.getTypesId(),1));
         itemService.saveItem(items);
         DataReturnOne<ItemDTO> returnOne = new DataReturnOne<>();
-        returnOne.setMessage("Them item thanh cong");
-        returnOne.setData(itemMapper.ItemToItemDTO(items));
+
+        try {
+
+
+            returnOne.setMessage("Them thanh cong");
+            returnOne.setSuccess("true");
+            returnOne.setData(itemMapper.ItemToItemDTO(items));
+        }
+        catch (NotFoundException ex) {
+            returnOne.setSuccess("false");
+            returnOne.setMessage("Them that bai");
+
+        }
         return ResponseEntity.ok(returnOne);
     }
 
