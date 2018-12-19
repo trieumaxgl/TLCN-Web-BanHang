@@ -85,6 +85,7 @@ public class ItemController {
     public ResponseEntity<Object> createImage(@RequestBody Attach_FileDTO attachFileDTO) {
         Attach_File attachFile = attach_fileService.dtoToAttachFile(attachFileDTO);
         attachFile.setItems(itemService.findById(attachFileDTO.getItemId()));
+        attachFile.setItems(itemService.findByIdLast());
         attach_fileService.saveAttachFile(attachFile);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .buildAndExpand(
