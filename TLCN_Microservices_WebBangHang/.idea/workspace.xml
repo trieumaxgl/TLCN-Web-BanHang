@@ -3,15 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f36aeaae-6f85-4f28-b973-96b8c44f901a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/controller/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/model/Attach_File.java" beforeDir="false" afterPath="$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/model/Attach_File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db-service/src/main/java/hcmute/edu/vn/dbservice/model/Attach_File.java" beforeDir="false" afterPath="$PROJECT_DIR$/db-service/src/main/java/hcmute/edu/vn/dbservice/model/Attach_File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db-service/src/main/java/hcmute/edu/vn/dbservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/db-service/src/main/java/hcmute/edu/vn/dbservice/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nu-service/src/main/java/hcmute/edu/vn/nuservice/model/Attach_File.java" beforeDir="false" afterPath="$PROJECT_DIR$/nu-service/src/main/java/hcmute/edu/vn/nuservice/model/Attach_File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nu-service/src/main/java/hcmute/edu/vn/nuservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/nu-service/src/main/java/hcmute/edu/vn/nuservice/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/Attach_File.java" beforeDir="false" afterPath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/Attach_File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/api/v1/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/api/v1/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/db-service/target/" />
@@ -33,30 +29,37 @@
     <session id="-108514786">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="96" />
+          <entry key="java" value="893" />
+          <entry key="properties" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="96" />
+          <entry key="JAVA" value="893" />
+          <entry key="Properties" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="12" />
+          <entry key="java" value="32" />
+          <entry key="properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="12" />
+          <entry key="JAVA" value="32" />
+          <entry key="Properties" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -64,10 +67,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/controller/ItemController.java">
+        <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+            <state relative-caret-position="102">
+              <caret line="55" column="58" lean-forward="true" selection-start-line="55" selection-start-column="58" selection-end-line="55" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,10 +94,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ad-service/pom.xml" />
-        <option value="$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/api/v1/dto/PermissionDTO.java" />
-        <option value="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/api/v1/dto/UserDto.java" />
-        <option value="$PROJECT_DIR$/nu-service/src/main/java/hcmute/edu/vn/nuservice/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/nu-service/src/main/java/hcmute/edu/vn/nuservice/service/UserService.java" />
         <option value="$PROJECT_DIR$/nu-service/src/main/java/hcmute/edu/vn/nuservice/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/nu-service/src/main/java/hcmute/edu/vn/nuservice/service/RoleService.java" />
@@ -118,8 +120,6 @@
         <option value="$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/model/Role.java" />
         <option value="$PROJECT_DIR$/db-service/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/nu-service/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/u-service/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/controller/UserController.java" />
         <option value="$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/api/v1/mapper/AttachFileMapper.java" />
         <option value="$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/api/v1/mapper/Attach_FileMapper.java" />
         <option value="$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/api/v1/dto/Attach_FileDTO.java" />
@@ -139,6 +139,12 @@
         <option value="$PROJECT_DIR$/nu-service/src/main/java/hcmute/edu/vn/nuservice/model/User.java" />
         <option value="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/Attach_File.java" />
         <option value="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/User.java" />
+        <option value="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/api/v1/dto/UserDto.java" />
+        <option value="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/service/UserService.java" />
+        <option value="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/u-service/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/controller/UserController.java" />
       </list>
     </option>
   </component>
@@ -160,11 +166,11 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="nu-service" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="u-service" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="nu-service" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="u-service" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
@@ -184,7 +190,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -287,52 +292,51 @@
             <path>
               <item name="TLCN_Microservices_WebBangHang" type="b2602c69:ProjectViewProjectNode" />
               <item name="TLCN_Microservices_WebBangHang" type="462c0819:PsiDirectoryNode" />
-              <item name="ad-service" type="462c0819:PsiDirectoryNode" />
+              <item name="u-service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TLCN_Microservices_WebBangHang" type="b2602c69:ProjectViewProjectNode" />
               <item name="TLCN_Microservices_WebBangHang" type="462c0819:PsiDirectoryNode" />
-              <item name="ad-service" type="462c0819:PsiDirectoryNode" />
+              <item name="u-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TLCN_Microservices_WebBangHang" type="b2602c69:ProjectViewProjectNode" />
               <item name="TLCN_Microservices_WebBangHang" type="462c0819:PsiDirectoryNode" />
-              <item name="ad-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLCN_Microservices_WebBangHang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TLCN_Microservices_WebBangHang" type="462c0819:PsiDirectoryNode" />
-              <item name="ad-service" type="462c0819:PsiDirectoryNode" />
+              <item name="u-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TLCN_Microservices_WebBangHang" type="b2602c69:ProjectViewProjectNode" />
               <item name="TLCN_Microservices_WebBangHang" type="462c0819:PsiDirectoryNode" />
-              <item name="ad-service" type="462c0819:PsiDirectoryNode" />
+              <item name="u-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="adservice" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TLCN_Microservices_WebBangHang" type="b2602c69:ProjectViewProjectNode" />
               <item name="TLCN_Microservices_WebBangHang" type="462c0819:PsiDirectoryNode" />
-              <item name="ad-service" type="462c0819:PsiDirectoryNode" />
+              <item name="u-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="adservice" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="uservice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TLCN_Microservices_WebBangHang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TLCN_Microservices_WebBangHang" type="462c0819:PsiDirectoryNode" />
+              <item name="u-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -569,6 +573,9 @@
       <workItem from="1545159787299" duration="342000" />
       <workItem from="1545198072151" duration="594000" />
       <workItem from="1545204578516" duration="217000" />
+      <workItem from="1545223088938" duration="5087000" />
+      <workItem from="1545238367392" duration="889000" />
+      <workItem from="1545247900149" duration="3139000" />
     </task>
     <servers />
   </component>
@@ -581,7 +588,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128806000" />
+    <option name="totallyTimeSpent" value="137921000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -595,7 +602,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1488" height="878" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49945235" visible="true" weight="0.33683473" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49945235" visible="true" weight="0.30182073" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -617,7 +624,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="14" sideWeight="0.49848714" visible="true" weight="0.35302013" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="14" sideWeight="0.49848714" visible="true" weight="0.2966443" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -680,34 +687,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/nu-service/src/main/java/hcmute/edu/vn/nuservice/service/impl/RoleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nu-service/src/main/java/hcmute/edu/vn/nuservice/model/Permission.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/Sale.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/Cart_Item.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/Cart_Item_Id.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/Permission.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/Bill.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/Items.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/Role.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -722,13 +701,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nu-service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/u-service/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
@@ -828,13 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/service/ItemService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/service/Attach_FileService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -846,20 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/service/impl/ItemServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/repository/ItemRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -912,13 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nu-service/src/main/java/hcmute/edu/vn/nuservice/controller/NonUserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -968,13 +912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db-service/src/main/java/hcmute/edu/vn/dbservice/model/Attach_File.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -982,10 +919,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/api/v1/dto/ItemDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/api/v1/data/DataReturnList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/api/v1/data/DataReturnOne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/api/v1/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="66" selection-start-line="12" selection-start-column="66" selection-end-line="12" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/service/ItemService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/repository/ItemRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/service/impl/ItemServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="40" column="28" lean-forward="true" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u-service/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="45" lean-forward="true" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/api/v1/dto/UserDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="50" column="13" lean-forward="true" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="45" lean-forward="true" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ad-service/src/main/java/hcmute/edu/vn/adservice/controller/ItemController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+        <state relative-caret-position="221">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/u-service/src/main/java/hcmute/edu/vn/uservice/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="55" column="58" lean-forward="true" selection-start-line="55" selection-start-column="58" selection-end-line="55" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

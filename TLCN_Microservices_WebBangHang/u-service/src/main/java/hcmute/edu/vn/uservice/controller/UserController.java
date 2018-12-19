@@ -1,14 +1,18 @@
 package hcmute.edu.vn.uservice.controller;
 
+import hcmute.edu.vn.uservice.exception.NotFoundException;
 import hcmute.edu.vn.uservice.api.v1.data.DataReturnList;
 import hcmute.edu.vn.uservice.api.v1.data.DataReturnOne;
 import hcmute.edu.vn.uservice.api.v1.dto.ItemDto;
 import hcmute.edu.vn.uservice.api.v1.dto.ItemInCartDto;
+import hcmute.edu.vn.uservice.api.v1.dto.UserDto;
 import hcmute.edu.vn.uservice.api.v1.mapper.ItemInCartMapper;
 import hcmute.edu.vn.uservice.api.v1.mapper.ItemMapper;
+import hcmute.edu.vn.uservice.api.v1.mapper.UserMapper;
 import hcmute.edu.vn.uservice.model.*;
 import hcmute.edu.vn.uservice.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -23,12 +27,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
     @Autowired
     private ItemService itemService;
 
     @Autowired
     private ItemMapper itemMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @Autowired
     private ItemInCartMapper itemInCartMapper;
@@ -41,6 +47,32 @@ public class UserController {
 
     @Autowired
     private BillItemService billItemService;
+
+    @GetMapping("/{email}")
+    public DataReturnOne<UserDto> getUser(@PathVariable(value = "email") String email){
+        DataReturnOne<UserDto> returnOne = new DataReturnOne<>();
+        User user = userService.findByEmailAndStatus(email,1);
+        returnOne.setMessage("get user info");
+        returnOne.setData(userMapper.userToUserDto(user));
+        return returnOne;
+    }
+
+    @PostMapping("/update/{email}")
+    public ResponseEntity<Object> updateUser(@RequestBody UserDto userDto, @PathVariable(value="email") String email) {
+        User user = userService.findByEmailAndStatus(email,1);
+        userService.updateUser(userDto,user.getId());
+        DataReturnOne<UserDto> returnOne = new DataReturnOne<>();
+        try {
+            returnOne.setMessage("Thay doi thong tin thanh cong");
+            returnOne.setSuccess("true");
+            returnOne.setData(userDto);
+        }
+        catch (NotFoundException ex) {
+            returnOne.setSuccess("false");
+            returnOne.setMessage("Thay doi thong tin that bai");
+        }
+        return ResponseEntity.ok(returnOne);
+    }
 
     @GetMapping("/itemincart/{firstName}/{lastName}")
     public DataReturnList<ItemInCartDto> getItemInCart(@PathVariable String firstName, @PathVariable String lastName){
