@@ -34,7 +34,7 @@ public class ItemController {
     @Autowired
     TypeService typeService;
 
-    @PostMapping("/load")
+    @GetMapping("/load")
     public DataReturnList<ItemDTO> getAllItems() {
 
         //get all product was not deleted
@@ -48,8 +48,8 @@ public class ItemController {
         return dataReturnList;
     }
 
-    @GetMapping("/{id}")
-    public DataReturnOne<ItemDTO> getItem(@PathVariable(value = "id") int id){
+    @GetMapping("/search")
+    public DataReturnOne<ItemDTO> getItem(@RequestParam(required = false) int id){
         //get all product was not deleted
         DataReturnOne<ItemDTO> returnOne = new DataReturnOne<>();
         returnOne.setMessage("get item");
