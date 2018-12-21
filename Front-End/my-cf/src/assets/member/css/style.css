@@ -482,8 +482,8 @@ figure {
 /*----special-grid------*/
 .special-grid {
 	float: left;
-	width: 32%;
-	margin-right: 2%;
+	width: 30%;
+	margin-right: 3%;
 	text-align: center;
 }
 .specials {
@@ -491,6 +491,9 @@ figure {
 }
 .special-grid img{
 	width:100%;
+	background-position: center;
+	background-repeat: no-repeat; 
+	background-size: cover;
 }
 .special-grid a{
 	text-transform: uppercase;
@@ -514,7 +517,7 @@ figure {
 	margin: 0px;
 }
 .specials-grids {
-	padding: 25px 0 60px 0;
+	/* padding: 25px 0 60px 0; */
 }
 /*-----specials-heading----*/
 .specials-heading h3{

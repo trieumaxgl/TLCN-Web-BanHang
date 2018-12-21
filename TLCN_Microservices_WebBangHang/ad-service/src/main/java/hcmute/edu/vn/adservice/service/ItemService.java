@@ -19,5 +19,7 @@ public interface ItemService {
 
     Items updateItem(ItemDTO itemDTO, int id);
 
+    List<ItemDTO> findItemType(int typesId);
+
     List<Items> findAll(int status);
 }

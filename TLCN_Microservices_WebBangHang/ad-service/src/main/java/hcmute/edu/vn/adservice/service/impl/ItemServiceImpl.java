@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ItemServiceImpl implements ItemService{
@@ -57,6 +58,13 @@ public class ItemServiceImpl implements ItemService{
         update.setDescription(itemDTO.getDescription());
         return update;
     }
+
+    @Override
+    public List<ItemDTO> findItemType(int typesId) {
+        List<Items> items = itemRepository.findItemByType(typesId);
+        return items.stream().map(itemMapper::ItemToItemDTO).collect(Collectors.toList());
+    }
+
 
     @Override
     public Items saveItem(Items items) {

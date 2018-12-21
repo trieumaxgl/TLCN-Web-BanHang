@@ -99,4 +99,31 @@ public class ItemController {
                 ).toUri();
         return ResponseEntity.created(location).build();
     }
+    @GetMapping("/getAttachFile")
+    public  DataReturnList<Attach_FileDTO> getItemsByAttachFile(@RequestParam(required = false) int id){
+
+        DataReturnList<Attach_FileDTO> dataReturnList = new DataReturnList<>();
+        dataReturnList.setMessage("get all items");
+        dataReturnList.setData(attach_fileService.findItemAttachFile(id));
+
+        return dataReturnList;
+    }
+    @GetMapping("/getType")
+    public  DataReturnList<ItemDTO> getItemByType(@RequestParam(required = false) int typesId){
+
+        DataReturnList<ItemDTO> dataReturnList = new DataReturnList<>();
+        dataReturnList.setMessage("get all items");
+        dataReturnList.setData(itemService.findItemType(typesId));
+
+        return dataReturnList;
+    }
+    @GetMapping("/getAllAttachFile")
+    public  DataReturnList<Attach_FileDTO> getAllAttachFile(){
+
+        DataReturnList<Attach_FileDTO> dataReturnList = new DataReturnList<>();
+        dataReturnList.setMessage("get all items");
+        dataReturnList.setData(attach_fileService.findAll());
+
+        return dataReturnList;
+    }
 }

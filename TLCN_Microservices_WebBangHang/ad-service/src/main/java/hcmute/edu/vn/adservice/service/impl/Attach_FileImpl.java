@@ -9,11 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class Attach_FileImpl  implements Attach_FileService {
     @Autowired
     Attach_FileRepository attachFileRepository;
+    @Autowired
+    Attach_FileMapper attachFileMapper;
 
 //    @Autowired
 //    Attach_FileMapper attachFileMapper;
@@ -32,8 +35,16 @@ public class Attach_FileImpl  implements Attach_FileService {
     }
 
     @Override
-    public List<Attach_File> fillAll(int itemId) {
-        return attachFileRepository.findAll();
+    public List<Attach_FileDTO> findItemAttachFile(int id) {
+        List<Attach_File> attachFiles = attachFileRepository.findItemByAttachFile(id);
+        return attachFiles.stream().map(attachFileMapper::AttachFileToAttachFileDTO).collect(Collectors.toList());
     }
+
+    @Override
+    public List<Attach_FileDTO> findAll() {
+        List<Attach_File> attachFiles = attachFileRepository.findAll();
+        return attachFiles.stream().map(attachFileMapper::AttachFileToAttachFileDTO).collect(Collectors.toList());
+    }
+
 
 }

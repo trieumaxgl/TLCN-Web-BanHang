@@ -56,7 +56,7 @@ export class AdminTypeAddComponent implements OnInit {
         this.item.name = "";
         this.item.typesId = null;
         this.item.price = null;
-        this.item.discription= "";
+        this.item.description= "";
         alert("Thêm thành công !!");
         this.router.navigate(['/admin/type/add']);
      //alert("Thêm thành công!!");
@@ -90,13 +90,13 @@ export class AdminTypeAddComponent implements OnInit {
       let file = event.target.files[0];
       reader.readAsDataURL(file);
        reader.onload = () => {
-        this.image = "data:" + file.type + ";base64," + reader.result.split(',')[1];
+        this.image = "data:" + file.type + ";base64," + (reader.result as string).split(',')[1];
         this.selectedImg = this.image;
         this.formImage
         .get('avatar').setValue({
           filename: file.name,
           filetype: file.type,
-          value: "data:" + file.type + ";base64," + reader.result.split(',')[1]
+          value: "data:" + file.type + ";base64," + (reader.result as string).split(',')[1]
         })
       };
     }

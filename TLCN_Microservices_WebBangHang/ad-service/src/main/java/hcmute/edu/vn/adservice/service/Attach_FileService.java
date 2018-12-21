@@ -10,6 +10,7 @@ public interface Attach_FileService {
 
     Attach_File saveAttachFile(Attach_File attachFile);
 
-    List<Attach_File> fillAll(int itemId);
+    List<Attach_FileDTO> findItemAttachFile(int id);
+    List<Attach_FileDTO> findAll();
 
 }

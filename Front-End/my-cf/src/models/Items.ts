@@ -3,7 +3,7 @@ export class Items {
     id: number;
     name:String;
     typesId:number;
-    discription:String;
+    description:String;
     status:number;
     price:number;
 }

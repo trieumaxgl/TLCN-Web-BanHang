@@ -71,7 +71,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="content table-responsive table-full-width">
-                      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                      <table class="table table-striped table-bordered">
                         <thead>
                           <tr>
                             <th>ID</th>
@@ -86,6 +86,7 @@
                         </thead>
                         <tbody *ngIf="items?.length != 0">
                           <tr *ngFor="let item of items">
+                            
                             <td>{{item.id}}</td>
                             <td>{{item.name}}</td>
                             <td *ngIf="item.typesId == 1">Bột</td>
@@ -95,12 +96,13 @@
                             <td *ngIf="item.status == 1">Còn hàng</td>
                             <td *ngIf="item.status == 0">Hết hàng</td>
                             <!-- <td>{{View}}</td> -->
-                            <td><a  [routerLink] = "[]"
+                            <td (click)= "onGotoItemDetail(item.id)"><a  
                               style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a>
                             </td>
                               <td><a href="#" onclick= ""
                               style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a>
                             </td>
+                         
                           </tr>
                                                    
                         </tbody>

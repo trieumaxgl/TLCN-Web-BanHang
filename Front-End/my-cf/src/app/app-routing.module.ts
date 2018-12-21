@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductViewComponent} from './product-view/product-view.component';
 import { CartComponent } from './cart/cart.component';
 import { AdminIndexComponent } from './admin-index/admin-index.component';
 import { AdminAccountInfoComponent } from './admin-account-info/admin-account-info.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'product', component: ProductComponent },
+  { path: 'product/view', component: ProductViewComponent },
   { path: 'product/detail', component: ProductDetailComponent },
   { path: 'cart', component: CartComponent},
   { path: 'admin/index', component: AdminIndexComponent },

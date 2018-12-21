@@ -44,7 +44,7 @@
               <div class="container-fluid">
                   <div class="row">
                     <div class="btn-group" style=" padding-bottom: 15px;padding-left: 20px;">
-                            <a href="viewListRoom?hotelID=${hotelid}&hotelName=${hotelName}" type="button" class="btn btn-default">
+                            <a href="" type="button" class="btn btn-default">
                               <i class="ti-arrow-left"></i>&nbsp;&nbsp;back
                             </a>
                         </div>
@@ -106,25 +106,22 @@
                                 
                                 <div class="clearfix"></div>
                                 <div class="content">
-                                     <form action="updateRoom" method="post">
-                                       <input type="hidden" name="roomid" value="${roomInfo.roomid}" />
-                                       <input type="hidden" name="hotelID" value="${hotelid}" />
-                                       <input type="hidden" name="hotelName" value="${hotelName}" />
+                                     <form method="post"(ngSubmit)="updateItem()">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Tên cà phê</label>
-                                                    <input type="text" class="form-control border-input" name="roomname" value="Cà phê 1 " required>
+                                                    <input type="text" [(ngModel)]="itemUpdate.name"class="form-control border-input" name="name" value="{{item.name}}" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="hidden" id="loaiphong" value="${roomInfo.roomcategoryid}" />
                                                     <label>Loại cà phê</label>
-                                                    <select id="listloaiphong" name="Listloaiphong" class="form-control border-input">
-                                                        <option class="dropdown" value="1">Hạt</option>
-                                                        <option class="dropdown" value="2">Ran xay</option>
-                                                        <option class="dropdown" value="3">Bột</option>
+                                                    <select id="listloaiphong" [(ngModel)]="itemUpdate.typesId" name="typesId" class="form-control border-input"
+                                                    (change)="ChangingValue($event)" [value]='item.typesId'>
+                                                        <option class="dropdown"   value="1">Hạt</option>
+                                                        <option class="dropdown"   value="2">Ran xay</option>
+                                                        <option class="dropdown"  value="3">Bột</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -137,7 +134,7 @@
                                                     <label>Giá 0.5 kg</label>
                                                     <div class="input-group">
                                                         <span style="border: 1px solid #ccc5b9;" class="input-group-addon "><i style="font-size: 15px;" class="ti-money"></i></span>
-                                                        <input type="number" class="form-control border-input" name="price" value="${roomInfo.price}" required>
+                                                        <input type="number" [(ngModel)]="itemUpdate.price"class="form-control border-input" name="price" value="{{item.price}}" required>
                                                         
                                                     </div>
                                                 </div>
@@ -145,7 +142,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Trạng thái</label>
-                                                    <input type="text" class="form-control border-input" disabled placeholder="Status" name="r_status" value="">
+                                                    <input type="text" class="form-control border-input" disabled placeholder="Status" name="r_status" value="Con hàng">
                                                 </div>
                                             </div>
                                         </div>
@@ -154,7 +151,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Mô tả</label>
-                                                    <textarea rows="7" class="form-control border-input" name="r_description" placeholder="Here can be your description"></textarea>
+                                                    <textarea rows="7" [(ngModel)]="itemUpdate.description" class="form-control border-input" name="description" placeholder="Here can be your description">{{item.description}}</textarea>
                                                 </div>
                                             </div>
                                         </div>

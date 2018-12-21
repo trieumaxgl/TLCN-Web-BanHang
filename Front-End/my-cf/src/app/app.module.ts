@@ -27,6 +27,7 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminTypeAddComponent } from './admin-type-add/admin-type-add.component';
 import {NuServiceService} from './nu-service/nu-service.service';
 import {AdServiceService} from './ad-service/ad-service.service';
+import { ProductViewComponent } from './product-view/product-view.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import {AdServiceService} from './ad-service/ad-service.service';
     CartComponent,
     AdminMenuComponent,
     AdminTypeAddComponent,
+    ProductViewComponent,
   ],
   imports: [
     BrowserModule,

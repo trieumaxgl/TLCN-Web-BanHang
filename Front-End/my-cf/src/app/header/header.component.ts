@@ -11,9 +11,19 @@ import { first } from 'rxjs/operators';
 ]
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  username : string
+  email : string
+  avatar : string
+  error : String
+  constructor( private route : Router) {
+   }
 
   ngOnInit() {
+    this.email = localStorage.getItem("email");
+    console.log(this.email);
+  }
+  onLogout(){
+    localStorage.clear()
+    this.route.navigate(["/login"]);
   }
 }

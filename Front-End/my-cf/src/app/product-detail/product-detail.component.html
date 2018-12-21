@@ -6,15 +6,15 @@
       <div class="specials">
         <div class="specials-heading">
           <label>
-            <a href="#" title="Trang Chủ">Trang Chủ</a>
+            <a [routerLink] = "['/index']" title="Trang Chủ">Trang Chủ</a>
             |
-            <a href="#" title="Sản phẩm">Sản Phẩm</a>
+            <a [routerLink] = "['/product']" title="Sản phẩm">Sản Phẩm</a>
             |
-            <a href="#" title="Cà phê C11">Cà phê gia lai</a>
+            <a href="#" title="{{item.name}}">{{item.name}}</a>
           </label>
 
           <div class="clear"> </div>
-          <h3>Cà phê gia lai</h3>
+          <h3>{{item.name}}</h3>
           <figure class="box_title_img">
             <img src="../../assets/member/images/icons/img_title.png">
           </figure>
@@ -32,19 +32,17 @@
   <div class="box_pages">
     <div class="box_pro_list">
       <div class="pro_list_left">
-        <figure>
-          <img alt=" Classic - Số 3 (500g)" src="https://classiccoffee.com.vn/img/postings/classic-so-3-500g-co6gK3.jpg">
+        <figure *ngIf="attachFiles">
+          <img alt=" Classic - Số 3 (500g)" [src]="attachFiles[0].image">
 
         </figure>
-        <div class="small_image">
+        <div class="small_image" *ngFor="let attachfile of attachFiles">
           <ul class="small_image_content slick-initialized slick-slider slick-vertical">
-
-
             <div class="slick-list draggable" style="height: 438px;">
               <div class="slick-track" style="opacity: 1; height: 146px; transform: translate3d(0px, 0px, 0px);">
                 <li class="slick-slide slick-current slick-active" tabindex="0" style="width: 166px;" data-slick-index="0" aria-hidden="false">
                   <a tabindex="0">
-                    <img alt=" Classic - Số 3 (500g)" src="https://classiccoffee.com.vn/img/postings/classic-so-3-500g-co6gK3.jpg">
+                    <img alt=" Classic - Số 3 (500g)" [src]="attachfile.image">
                   </a>
                   
                 </li>
@@ -60,61 +58,27 @@
             </li>
           </ul>
         </div>
-        <div class="small_image">
-            <ul class="small_image_content slick-initialized slick-slider slick-vertical">
-
-
-              <div class="slick-list draggable" style="height: 438px;">
-                <div class="slick-track" style="opacity: 1; height: 146px; transform: translate3d(0px, 0px, 0px);">
-                  <li class="slick-slide slick-current slick-active" tabindex="0" style="width: 166px;" data-slick-index="0" aria-hidden="false">
-                    <a tabindex="0">
-                      <img alt=" Classic - Số 3 (500g)" src="https://classiccoffee.com.vn/img/postings/classic-so-3-500g-co6gK3.jpg">
-                    </a>
-                    
-                  </li>
-                </div>
-              </div>
-            </ul>
-            <ul class="arrow_pro">
-              <li class="next_small_image slick-arrow slick-hidden" aria-disabled="true" tabindex="-1">
-                <i class="fa fa-angle-up "></i>
-              </li>
-              <li class="prev_small_image slick-arrow slick-hidden" aria-disabled="true" tabindex="-1">
-                <i class="fa fa-angle-down"></i>
-              </li>
-            </ul>
-          </div>
 
 
       </div>
       <div class="pro_list_right">
-        <label class="fl_ma">Mã sản phẩm:
-          <b class="fl_font_saigon">CF-15</b>
-        </label>
         <div class="fl_ma">Tên sản phẩm:
-          <label class="price_sale fl_font_saigon">Classic - Số 3 (500g)</label>
+          <label class="price_sale fl_font_saigon">{{item.name}} (500g)</label>
         </div>
         <div class="fl_ma">Giá:
-          <label class="price_sale fl_font_saigon">280.000
+          <label class="price_sale fl_font_saigon">{{item.price}}
             <b>
               VNĐ</b>
           </label>
         </div>
         <div class="fl_ma fl_color_999">Danh mục:
-          <i>Rang Xay Đóng Gói</i>
+          <i *ngIf= "item.typesId == 3">Rang Xay</i>
         </div>
-        <div class="fl_ma fl_color_999">Lượt xem:
-          <i>100</i>
-        </div>
+      
         <div class="description">
           <div class="addthis_inline_share_toolbox"></div>
         </div>
         <div class="cart_button">
-
-
-
-
-
           <label data-id="15" class="fl_thanhtoan addcart">
             <input type="button" class="btn" value="Đặt hàng">
           </label>
@@ -127,7 +91,7 @@
         </div>
         <div class="box_product">
           <div class="box_content">
-            Classic - Số 3 (500g) </div>
+            {{item.description}} </div>
         </div>
       </div>
     </div>

@@ -18,7 +18,22 @@ export class AdServiceService {
   item : Items;
   constructor(private http:HttpClient) { }
   loadAllItem() : Observable<any>{
-    return this.http.post(`${this.context}api/v1/admin/items`,"");
+    return this.http.get(`${this.context}api/v1/admin/items/load`);
+  }
+  findItemById(id) : Observable<any>{
+    return this.http.get(`${this.context}api/v1/admin/items/search?id=${id}`);
+  }
+  findAttachFileByItem(id) : Observable<any>{
+    return this.http.get(`${this.context}api/v1/admin/items/getAttachFile?id=${id}`);
+  }
+  findItemByType(id) : Observable<any>{
+    return this.http.get(`${this.context}api/v1/admin/items/getType?typesId=${id}`);
+  }
+  findItemByAttachFile() : Observable<any>{
+    return this.http.get(`${this.context}api/v1/admin/items/getAllAttachFile`);
+  }
+  updateItem(item:Items) : Observable<any>{
+    return this.http.post(`${this.context}api/v1/admin/items/update/${item.id}`,item);
   }
   createItem(item:Items) : Observable<any>{
     return this.http.post(`${this.context}api/v1/admin/items/create`,item);

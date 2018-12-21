@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Route, Router } from '@angular/router';
+import { AdServiceService } from '../ad-service/ad-service.service';
+import { Items } from '../../models/Items';
+import { AttachFile } from '../../models/Attach_File';
+import { Types } from '../../models/Types';
+import { first } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
+import {HttpClient,HttpHeaders,HttpResponse} from '@angular/common/http';
+import * as $ from 'jquery';
+import 'datatables.net';
+import 'datatables.net-bs4';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -12,10 +22,37 @@ import { Component, OnInit } from '@angular/core';
 ]
 })
 export class ProductComponent implements OnInit {
+  items:Items[];
+  attachFiles : AttachFile[];
+  constructor(private adService: AdServiceService, private router: Router) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
+    this.adService.loadAllItem()
+    .subscribe(res => {
+      if(res.success == "true")
+      {
+        this.items = res.data; 
+      }
+     
+    }, err => {
+      console.log(err.message)
+  });
+  this.adService.findItemByAttachFile()
+  .pipe(first())
+  .subscribe(res=>{
+    if(res.success == "true")
+    {
+      this.attachFiles = res.data; 
+    }
+  }, err => {
+    console.log(err.message)
+});
+  
   }
-
+  onGotoProductView(id) {
+    this.router.navigate(["/product/view"], { queryParams: { id: id } });
+  }
+  onGotoProductDetail(id) {
+    this.router.navigate(["/product/detail"], { queryParams: { id: id } });
+  }
 }
