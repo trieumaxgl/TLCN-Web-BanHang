@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -137,13 +138,9 @@ public class UserController {
     @PostMapping("/thanhtoan/{email}")
     public boolean thanhToan(@PathVariable String email){
         User user = userService.findByEmailAndStatus(email,1);
+        Long total = Long.valueOf(0);
 
-        Bill bill = new Bill();
-        bill.setTotal(Long.valueOf(0));
-        bill.setStatus(Integer.valueOf(0));
-        bill.setUser(user);
-
-        Bill billAdd = billService.addBill(bill);
+        Bill billAdd = billService.addBill(user);
 
         System.out.println(billAdd.getId());
 
@@ -153,17 +150,24 @@ public class UserController {
         List<Bill_Item> bill_items = new ArrayList<>();
 
         for (Cart_Item cart_item: cart_items) {
+
             Bill_Item_Id bill_item_id = new Bill_Item_Id();
             bill_item_id.setBill(billAdd);
             bill_item_id.setItems(cart_item.getId().getItems());
 
             Bill_Item bill_item = new Bill_Item();
             bill_item.setId(bill_item_id);
-            bill_item.setTotal(cart_item.getId().getItems().getPrice());
+            bill_item.setStatus(1);
+            Long tongGia= cart_item.getId().getItems().getPrice()*cart_item.getQuantity();
+            bill_item.setTotal(tongGia);
             bill_item.setQuantity(cart_item.getQuantity());
 
             bill_items.add(billItemService.addBillItem(bill_item));
+
+            total = total + tongGia;
         }
+
+        billService.updateBill(billAdd.getId(),total);
 
         return cartItemService.deleteAllItemInCart(cart.getId());
     }
