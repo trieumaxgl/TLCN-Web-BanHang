@@ -74,9 +74,9 @@ public class UserController {
         return ResponseEntity.ok(returnOne);
     }
 
-    @GetMapping("/itemincart/{firstName}/{lastName}")
-    public DataReturnList<ItemInCartDto> getItemInCart(@PathVariable String firstName, @PathVariable String lastName){
-        Cart cart = userService.findByFirstnameAndLastname(firstName,lastName).getCart();
+    @GetMapping("/itemincart/{email}")
+    public DataReturnList<ItemInCartDto> getItemInCart(@PathVariable String email){
+        Cart cart = userService.findByEmailAndStatus(email,1).getCart();
 
         DataReturnList<ItemInCartDto> productInCartDtoDataReturnList=new DataReturnList<>();
         productInCartDtoDataReturnList.setData(cartItemService.retrieveAllCartItem(cart.getId())
@@ -87,11 +87,11 @@ public class UserController {
         return productInCartDtoDataReturnList;
     }
 
-    @PostMapping("/additemincart/{firstName}/{lastName}/{itemId}/{quantity}")
-    public DataReturnOne<ItemInCartDto> addItemInCart(@PathVariable String firstName, @PathVariable String lastName, @PathVariable int itemId, @PathVariable Long quantity){
+    @PostMapping("/additemincart/{email}/{itemId}/{quantity}")
+    public DataReturnOne<ItemInCartDto> addItemInCart(@PathVariable String email, @PathVariable int itemId, @PathVariable Long quantity){
         DataReturnOne<ItemInCartDto> dataReturnRecord = new DataReturnOne<>();
 
-        Cart cart = userService.findByFirstnameAndLastname(firstName,lastName).getCart();
+        Cart cart = userService.findByEmailAndStatus(email,1).getCart();
         Items items = itemService.findById(itemId);
 
         Cart_Item_Id cart_item_id = new Cart_Item_Id();
@@ -108,11 +108,11 @@ public class UserController {
         return dataReturnRecord;
     }
 
-    @DeleteMapping("/deleteitemincart/{firstName}/{lastName}/{itemId}")
-    public DataReturnOne<ItemDto> deleteItemInCart(@PathVariable String firstName, @PathVariable String lastName, @PathVariable int itemId){
+    @DeleteMapping("/deleteitemincart/{email}/{itemId}")
+    public DataReturnOne<ItemDto> deleteItemInCart(@PathVariable String email, @PathVariable int itemId){
         DataReturnOne<ItemDto> dataReturnRecord = new DataReturnOne<>();
 
-        Cart cart = userService.findByFirstnameAndLastname(firstName,lastName).getCart();
+        Cart cart = userService.findByEmailAndStatus(email,1).getCart();
         Items items = itemService.findById(itemId);
 
         Cart_Item_Id cart_item_id = new Cart_Item_Id(cart, items);
@@ -128,15 +128,15 @@ public class UserController {
         return dataReturnRecord;
     }
 
-    @DeleteMapping("/deleteallitemincart/{firstName}/{lastName}")
-    public boolean deleteAllItemInCart(@PathVariable String firstName, @PathVariable String lastName){
-        Cart cart = userService.findByFirstnameAndLastname(firstName,lastName).getCart();
+    @DeleteMapping("/deleteallitemincart/{email}")
+    public boolean deleteAllItemInCart(@PathVariable String email){
+        Cart cart = userService.findByEmailAndStatus(email,1).getCart();
         return cartItemService.deleteAllItemInCart(cart.getId());
     }
 
-    @PostMapping("/thanhtoan/{firstName}/{lastName}")
-    public boolean thanhToan(@PathVariable String firstName, @PathVariable String lastName){
-        User user = userService.findByFirstnameAndLastname(firstName,lastName);
+    @PostMapping("/thanhtoan/{email}")
+    public boolean thanhToan(@PathVariable String email){
+        User user = userService.findByEmailAndStatus(email,1);
 
         Bill bill = new Bill();
         bill.setTotal(Long.valueOf(0));
