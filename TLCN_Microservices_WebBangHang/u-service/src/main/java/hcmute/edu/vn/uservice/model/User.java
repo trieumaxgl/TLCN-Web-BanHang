@@ -50,7 +50,7 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonManagedReference
     private Role roles;
-
+    
     @OneToMany(mappedBy = "user")
     @JsonBackReference
     private Set<Bill> bills;

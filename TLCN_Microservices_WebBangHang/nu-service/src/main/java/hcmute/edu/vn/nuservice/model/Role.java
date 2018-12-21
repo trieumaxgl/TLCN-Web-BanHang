@@ -25,7 +25,6 @@ public class Role {
     @JsonBackReference
     private Set<User> user_role;
     @ManyToMany(mappedBy = "roles")
-    @JsonManagedReference
     private Set<Permission> permissions;
 }
 

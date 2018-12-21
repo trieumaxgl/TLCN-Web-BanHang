@@ -2,7 +2,6 @@ package hcmute.edu.vn.uservice.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +24,6 @@ public class Role {
     @JsonBackReference
     private Set<User> user_role;
     @ManyToMany(mappedBy = "roles")
-    @JsonManagedReference
     private Set<Permission> permissions;
 }
 

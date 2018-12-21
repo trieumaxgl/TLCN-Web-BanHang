@@ -35,7 +35,6 @@ public class Items {
     private Set<Attach_File> attachFiles;
 
     @ManyToMany(mappedBy = "items")
-    @JsonManagedReference
     private Set<Sale> sales;
 
     @OneToMany(mappedBy = "id.items")

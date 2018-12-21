@@ -1,7 +1,8 @@
 package hcmute.edu.vn.nuservice.service.impl;
 
+import hcmute.edu.vn.nuservice.api.v1.dto.UserDto;
 import hcmute.edu.vn.nuservice.exception.NotFoundException;
-import hcmute.edu.vn.nuservice.model.Role;
+import hcmute.edu.vn.nuservice.model.Cart;
 import hcmute.edu.vn.nuservice.model.User;
 import hcmute.edu.vn.nuservice.repository.RoleRepository;
 import hcmute.edu.vn.nuservice.repository.UserRepository;
@@ -41,5 +42,31 @@ public class UserServiceImpl implements UserService{
         User userCreate =  userRepository.save(user);
 
         return userRepository.save(userCreate);
+    }
+
+    @Override
+    public User findByEmailAndStatus(String email, int status){
+        Optional<User> user = userRepository.findByEmailAndStatus(email,status);
+        if(!user.isPresent())
+            throw new NotFoundException("User Not Found!!!");
+        return user.get();
+    }
+
+    @Override
+    public User userDtoToUser(UserDto userDto){
+        User user = new User();
+        user.setEmail(userDto.getEmail());
+        user.setPassword(userDto.getPassword());
+        user.setBirthday(userDto.getBirthday());
+        user.setFirstname(userDto.getFirstname());
+        user.setLastname(userDto.getLastname());
+        user.setStatus(1);
+        return user;
+    }
+
+    @Override
+    public User updateUser(int id){
+        User update = userRepository.findById(id).get();
+        return userRepository.save(update);
     }
 }

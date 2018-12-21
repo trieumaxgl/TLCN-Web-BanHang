@@ -18,7 +18,7 @@ public class RoleServiceImpl implements RoleService {
     public Role findById(int id) {
         Optional<Role> role = roleRepository.findById(id);
         if(!role.isPresent())
-            throw new NotFoundException("Product Not Found !!!");
+            throw new NotFoundException("Role Not Found !!!");
 
         return role.get();
     }

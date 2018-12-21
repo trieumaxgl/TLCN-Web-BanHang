@@ -7,15 +7,20 @@ import hcmute.edu.vn.nuservice.api.v1.data.DataReturnList;
 import hcmute.edu.vn.nuservice.exception.NotFoundException;
 import hcmute.edu.vn.nuservice.api.v1.mapper.UserMapper;
 import hcmute.edu.vn.nuservice.api.v1.mapper.ItemMapper;
+import hcmute.edu.vn.nuservice.model.Cart;
 import hcmute.edu.vn.nuservice.model.Items;
 import hcmute.edu.vn.nuservice.model.User;
 import hcmute.edu.vn.nuservice.model.Role;
+import hcmute.edu.vn.nuservice.service.CartService;
 import hcmute.edu.vn.nuservice.service.ItemService;
 import hcmute.edu.vn.nuservice.service.RoleService;
 import hcmute.edu.vn.nuservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,12 +43,35 @@ public class NonUserController {
     @Autowired
     private ItemMapper itemMapper;
 
-
+    @Autowired
+    private CartService cartService;
 
     @PostMapping("/register")
-    public UserDto register(@RequestBody User user){
-        user.setStatus(1);
-        return userMapper.userToUserDto(userService.registerUser(user));
+    public DataReturnOne<UserDto> register(@RequestBody UserDto userDto){
+        User check = userService.findByEmailAndStatus(userDto.getEmail(),1);
+        DataReturnOne<UserDto> dataReturnOne = new DataReturnOne<>();
+
+        if(check != null){
+            dataReturnOne.setMessage("Tai khoan da ton tai !!!");
+            dataReturnOne.setSuccess("false");
+        }
+        else {
+            User user = userService.userDtoToUser(userDto);
+            user.setRoles(roleService.findById(1));
+            userService.registerUser(user);
+
+            Cart newCart = new Cart();
+            newCart.setUser(userService.findByEmailAndStatus(user.getEmail(),1));
+            cartService.addNewCart(newCart);
+
+            user.setCart(cartService.findById(newCart.getId()));
+
+            dataReturnOne.setMessage("Tao tai khoan thanh cong !!!");
+            dataReturnOne.setSuccess("true");
+            dataReturnOne.setData(userMapper.userToUserDto(userService.updateUser(user.getId())));
+        }
+
+        return dataReturnOne;
     }
 
     @PostMapping("/login/{email}/{passWord}")

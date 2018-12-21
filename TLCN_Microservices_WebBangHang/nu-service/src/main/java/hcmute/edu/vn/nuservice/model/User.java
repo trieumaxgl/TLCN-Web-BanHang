@@ -19,7 +19,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     private Date birthday;
 
@@ -40,7 +40,7 @@ public class User {
 
     private String lastname;
 
-    private int status;
+    private Integer status;
 
     private String description;
 
@@ -54,7 +54,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     @JsonBackReference
     private Set<Bill> bills;
-
 }
 
 
