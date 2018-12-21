@@ -9,6 +9,6 @@ public class ItemInCartDto {
     private String description;
     private Long price;
     private Long quantity;
-    private String type;
+    private int type;
 }
 

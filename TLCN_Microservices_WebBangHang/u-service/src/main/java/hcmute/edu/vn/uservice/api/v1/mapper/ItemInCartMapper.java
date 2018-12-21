@@ -16,7 +16,7 @@ public interface ItemInCartMapper {
             @Mapping(source = "id.items.name", target = "name"),
             @Mapping(source = "id.items.description", target = "description"),
             @Mapping(source = "id.items.price", target = "price"),
-            @Mapping(source = "id.items.types.name", target = "type")
+            @Mapping(source = "id.items.types.id", target = "type")
     })
     ItemInCartDto cartItemToItemInCartDto(Cart_Item cartProduct);
 }
