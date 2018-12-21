@@ -48,7 +48,7 @@ public class NonUserController {
 
     @PostMapping("/register")
     public DataReturnOne<UserDto> register(@RequestBody UserDto userDto){
-        User check = userService.findByEmailAndStatus(userDto.getEmail(),1);
+        User check = userService.findByEmail(userDto.getEmail());
         DataReturnOne<UserDto> dataReturnOne = new DataReturnOne<>();
 
         if(check != null){
