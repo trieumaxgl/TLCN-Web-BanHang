@@ -136,8 +136,8 @@ public class UserController {
         return cartItemService.deleteAllItemInCart(cart.getId());
     }
 
-    @PostMapping("/thanhtoan/{email}")
-    public boolean thanhToan(@PathVariable String email){
+    @PostMapping("/buy/{email}")
+    public boolean buy(@PathVariable String email){
         User user = userService.findByEmailAndStatus(email,1);
         Long total = Long.valueOf(0);
 

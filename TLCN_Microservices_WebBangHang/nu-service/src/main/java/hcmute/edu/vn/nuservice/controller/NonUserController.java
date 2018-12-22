@@ -58,7 +58,7 @@ public class NonUserController {
         }
         else {
             User user = userService.userDtoToUser(userDto);
-            user.setRoles(roleService.findById(1));
+            user.setRoles(roleService.findById(2));
             userService.registerUser(user);
 
             Cart newCart = new Cart();

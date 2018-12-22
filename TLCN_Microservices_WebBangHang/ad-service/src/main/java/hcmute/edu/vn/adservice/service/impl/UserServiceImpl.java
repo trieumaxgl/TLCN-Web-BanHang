@@ -1,6 +1,7 @@
 package hcmute.edu.vn.adservice.service.impl;
 
 import hcmute.edu.vn.adservice.exception.NotFoundException;
+import hcmute.edu.vn.adservice.model.Role;
 import hcmute.edu.vn.adservice.model.User;
 import hcmute.edu.vn.adservice.repository.UserRepository;
 import hcmute.edu.vn.adservice.service.UserService;
@@ -22,8 +23,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findAll() {
-        List<User> users = userRepository.findAll();
+    public List<User> findAll(Role role) {
+        List<User> users = userRepository.findAllByRoles(role);
         if (users.isEmpty())
             throw new NotFoundException("User is Empty !!!");
         return users;

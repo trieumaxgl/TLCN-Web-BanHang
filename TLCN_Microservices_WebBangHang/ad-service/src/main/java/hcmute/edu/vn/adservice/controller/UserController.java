@@ -2,11 +2,10 @@ package hcmute.edu.vn.adservice.controller;
 
 import hcmute.edu.vn.adservice.api.v1.data.DataReturnList;
 import hcmute.edu.vn.adservice.api.v1.data.DataReturnOne;
-import hcmute.edu.vn.adservice.api.v1.dto.ItemDTO;
 import hcmute.edu.vn.adservice.api.v1.dto.UserDto;
 import hcmute.edu.vn.adservice.api.v1.mapper.UserMapper;
 import hcmute.edu.vn.adservice.model.User;
-import hcmute.edu.vn.adservice.repository.UserRepository;
+import hcmute.edu.vn.adservice.service.RoleService;
 import hcmute.edu.vn.adservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +21,8 @@ public class UserController {
     private UserService userService;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private RoleService roleService;
 
     @GetMapping("/alluser")
     public DataReturnList<UserDto> getAllUsers() {
@@ -29,7 +30,7 @@ public class UserController {
         //get all product was not deleted
         DataReturnList<UserDto> dataReturnList = new DataReturnList<>();
         dataReturnList.setMessage("get all users");
-        dataReturnList.setData(userService.findAll()
+        dataReturnList.setData(userService.findAll(roleService.findById(1))
                 .stream()
                 .map(userMapper::userToUserDto)
                 .collect(Collectors.toList()));
