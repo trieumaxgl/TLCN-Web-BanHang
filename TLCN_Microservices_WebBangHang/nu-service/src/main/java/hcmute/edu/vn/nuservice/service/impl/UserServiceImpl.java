@@ -77,4 +77,11 @@ public class UserServiceImpl implements UserService{
         User update = userRepository.findById(id).get();
         return userRepository.save(update);
     }
+
+    @Override
+    public User resetPassword(int id){
+        User reset = userRepository.findById(id).get();
+        reset.setPassword("12345678");
+        return userRepository.save(reset);
+    }
 }

@@ -13,4 +13,5 @@ public interface UserService {
     User userDtoToUser(UserDto userDto);
     User updateUser(int id);
     User findByEmail(String email);
+    User resetPassword(int id);
 }

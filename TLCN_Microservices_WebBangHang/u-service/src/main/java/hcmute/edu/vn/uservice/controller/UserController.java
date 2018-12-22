@@ -75,17 +75,6 @@ public class UserController {
         return ResponseEntity.ok(returnOne);
     }
 
-    @PostMapping("/reset/{email}")
-    public ResponseEntity<Object> resetPassword( @PathVariable(value="email") String email) {
-        User user = userService.findByEmailAndStatus(email,1);
-        userService.resetPassword(user.getId());
-        DataReturnOne<User> returnOne = new DataReturnOne<>();
-            returnOne.setSuccess("success");
-            returnOne.setMessage("Lay lai mat khau thanh cong!");
-
-        return ResponseEntity.ok(returnOne);
-    }
-
 
     @GetMapping("/itemincart/{email}")
     public DataReturnList<ItemInCartDto> getItemInCart(@PathVariable String email){

@@ -10,5 +10,5 @@ public interface UserService {
     User findByFirstnameAndLastname(String firstname, String lastname);
     User findByEmailAndStatus (String email, int status);
     User updateUser (UserDto userDto,int id);
-    User resetPassword(int id);
+
 }

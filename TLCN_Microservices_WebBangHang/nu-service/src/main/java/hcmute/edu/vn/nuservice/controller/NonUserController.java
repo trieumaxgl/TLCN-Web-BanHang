@@ -17,6 +17,7 @@ import hcmute.edu.vn.nuservice.service.RoleService;
 import hcmute.edu.vn.nuservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -94,6 +95,17 @@ public class NonUserController {
 
 
         return dataReturnOne;
+    }
+
+    @PostMapping("/reset/{email}")
+    public ResponseEntity<Object> resetPassword(@PathVariable(value="email") String email) {
+        User user = userService.findByEmailAndStatus(email,1);
+        userService.resetPassword(user.getId());
+        DataReturnOne<User> returnOne = new DataReturnOne<>();
+        returnOne.setSuccess("success");
+        returnOne.setMessage("Lay lai mat khau thanh cong!");
+
+        return ResponseEntity.ok(returnOne);
     }
 
     @GetMapping("/items")
