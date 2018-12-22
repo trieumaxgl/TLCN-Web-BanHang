@@ -1,5 +1,4 @@
-package hcmute.edu.vn.uservice.api.v1.dto;
-
+package hcmute.edu.vn.adservice.api.v1.dto;
 
 import lombok.Data;
 
@@ -7,8 +6,8 @@ import java.util.Date;
 
 @Data
 public class UserDto {
+    private int id;
     private String email;
-    private String password;
     private Date birthday;
     private int gender;
     private String avatar;

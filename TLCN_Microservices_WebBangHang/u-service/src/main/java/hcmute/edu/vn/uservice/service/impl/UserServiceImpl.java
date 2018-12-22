@@ -53,11 +53,19 @@ public class UserServiceImpl implements UserService{
         User update = userRepository.findById(id).get();
         update.setEmail(userDto.getEmail());
         update.setAddress(userDto.getAddress());
+        update.setPassword(userDto.getPassword());
         update.setBirthday(userDto.getBirthday());
         update.setFirstname(userDto.getFirstname());
         update.setLastname(userDto.getLastname());
         update.setAvatar(userDto.getAvatar());
         update.setGender(userDto.getGender());
         return userRepository.save(update);
+    }
+
+    @Override
+    public User resetPassword(int id){
+        User reset = userRepository.findById(id).get();
+        reset.setPassword("12345678");
+        return userRepository.save(reset);
     }
 }
