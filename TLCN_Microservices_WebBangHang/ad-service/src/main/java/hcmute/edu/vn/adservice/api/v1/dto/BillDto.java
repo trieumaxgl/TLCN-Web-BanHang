@@ -11,5 +11,7 @@ public class BillDto {
     private String phone;
     private int status;
     private Long total;
-    private int user;
+    private String email;
+    private String firstname;
+    private String lastname;
 }

@@ -12,7 +12,9 @@ public interface BillMapper {
     BillMapper INSTANCE = Mappers.getMapper(BillMapper.class);
 
     @Mappings({
-            @Mapping(source = "user.id", target = "user"),
+            @Mapping(source = "user.firstname", target = "firstname"),
+            @Mapping(source = "user.lastname", target = "lastname"),
+            @Mapping(source = "user.email", target = "email")
     })
     BillDto billToBillDto(Bill bill);
 }
