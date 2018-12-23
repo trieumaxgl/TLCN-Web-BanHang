@@ -46,5 +46,12 @@ public class Attach_FileImpl  implements Attach_FileService {
         return attachFiles.stream().map(attachFileMapper::AttachFileToAttachFileDTO).collect(Collectors.toList());
     }
 
-
+    @Override
+    public Attach_File findById(Attach_FileDTO attachFileDTO,int id){
+        Attach_File attachFile = attachFileRepository.findById(id).get();
+        if(attachFile == null)
+            throw new NotFoundException("Attach file not found!!");
+        attachFile.setImage(attachFileDTO.getImage());
+        return attachFileRepository.save(attachFile);
+    }
 }

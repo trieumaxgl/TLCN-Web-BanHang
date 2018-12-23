@@ -12,5 +12,5 @@ public interface Attach_FileService {
 
     List<Attach_FileDTO> findItemAttachFile(int id);
     List<Attach_FileDTO> findAll();
-
+    Attach_File findById(Attach_FileDTO attachFileDTO,int id);
 }

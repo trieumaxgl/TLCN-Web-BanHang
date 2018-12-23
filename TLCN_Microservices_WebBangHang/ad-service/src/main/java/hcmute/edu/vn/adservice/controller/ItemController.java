@@ -126,4 +126,14 @@ public class ItemController {
 
         return dataReturnList;
     }
+
+    @PostMapping("/updateImage/{id}")
+    public ResponseEntity<Object> updateImage(@RequestBody Attach_FileDTO attachFileDTO,@PathVariable(value="id") int id) {
+        Attach_File attachFile = attach_fileService.findById(attachFileDTO,id);
+        DataReturnOne<Attach_File> returnOne = new DataReturnOne<>();
+        returnOne.setMessage("Thay doi anh thanh cong");
+        returnOne.setSuccess("true");
+        returnOne.setData(attachFile);
+        return ResponseEntity.ok(returnOne);
+    }
 }
