@@ -18,7 +18,7 @@ public class BillitemServiceImpl implements BillitemService {
     public List<Bill_Item> retrieveAllBillItem(int billId) {
         List<Bill_Item> bill_items = billitemRepository.findById_BillId(billId);
         if(bill_items.isEmpty())
-            throw new NotFoundException("Not Found Product in Your Cart");
+            throw new NotFoundException("Not Found Product in Your Bill");
         return bill_items;
     }
 }

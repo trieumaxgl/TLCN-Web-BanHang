@@ -21,7 +21,7 @@ public class BillServiceImpl implements BillService {
     public Bill findById(int id){
         Optional<Bill> bill = billRepository.findById(id);
         if(!bill.isPresent())
-            throw new NotFoundException("User Not Found!!!");
+            throw new NotFoundException("Bill Not Found!!!");
         return bill.get();
     }
 
