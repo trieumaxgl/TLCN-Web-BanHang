@@ -27,7 +27,9 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminTypeAddComponent } from './admin-type-add/admin-type-add.component';
 import {NuServiceService} from './nu-service/nu-service.service';
 import {AdServiceService} from './ad-service/ad-service.service';
+import {UserServiceService} from './ad-service/user-service.service';
 import { ProductViewComponent } from './product-view/product-view.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { ProductViewComponent } from './product-view/product-view.component';
     AdminMenuComponent,
     AdminTypeAddComponent,
     ProductViewComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import { ProductViewComponent } from './product-view/product-view.component';
   ],
   providers: [
     NuServiceService,
-    AdServiceService
+    AdServiceService,
+    UserServiceService
   ],
   bootstrap: [AppComponent]
 })

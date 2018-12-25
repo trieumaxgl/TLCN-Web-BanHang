@@ -21,6 +21,7 @@ import { first } from 'rxjs/operators'
 export class AdminTypeAddComponent implements OnInit {
   selectedImg : string = ""
   item:Items;
+  email:string;
   attachFile:AttachFile;
   error : string;
   formImage: FormGroup;
@@ -43,6 +44,16 @@ export class AdminTypeAddComponent implements OnInit {
    }
   fileToUpload: File = null;
   ngOnInit() {
+    this.email = localStorage.getItem("email");
+    if(!this.email)
+    {
+      alert("Vui lòng đăng nhập!!");
+      this.router.navigate(["/login"]);
+    }
+  }
+  onLogout(){
+    localStorage.clear()
+    this.router.navigate(["/login"]);
   }
   createItem() {
 

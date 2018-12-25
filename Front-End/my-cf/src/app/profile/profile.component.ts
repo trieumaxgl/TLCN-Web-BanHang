@@ -11,17 +11,23 @@ import * as moment from 'moment';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+
 @Component({
-  selector: 'app-admin-account-info',
-  templateUrl: './admin-account-info.component.html',
-  styleUrls: ['./admin-account-info.component.css',
-    '../../assets/admin/assets/css/bootstrap.min.css',
-    '../../assets/admin/assets/css/animate.min.css',
-    '../../assets/admin/assets/css/paper-dashboard.css',
-    '../../assets/admin/assets/css/demo.css',
-    '../../assets/admin/assets/css/themify-icons.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css',
+  '../../assets/member/css/style.css',
+  '../../assets/member/fonts/font-awesome-4.7.0/css/font-awesome.min.css',
+  '../../assets/member/css/lightbox.css',
+  '../../assets/member/css/slider.css',
+  '../../assets/member/css/util.css',
+  '../../assets/admin/assets/css/bootstrap.min.css',
+  '../../assets/admin/assets/css/animate.min.css',
+  '../../assets/admin/assets/css/paper-dashboard.css',
+  '../../assets/admin/assets/css/demo.css',
+  '../../assets/admin/assets/css/themify-icons.css']
 })
-export class AdminAccountInfoComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   email: string;
   user: Users;
   birthdayDate: Date;
@@ -49,7 +55,7 @@ export class AdminAccountInfoComponent implements OnInit {
       formPhone: new FormControl({ value: '' }, Validators.compose([Validators.required])),
       formEmail: new FormControl({ value: '' }, Validators.compose([Validators.required]))
     });
-  }
+   }
 
   ngOnInit() {
     this.email = localStorage.getItem("email");
@@ -120,7 +126,7 @@ export class AdminAccountInfoComponent implements OnInit {
       .pipe(first())
       .subscribe(res => {
         alert("Đổi mật khẩu thành công !!");
-        this.route.navigate(['/admin/account-info']);
+        this.route.navigate(['/profile']);
       }, err => {
         this.error = err.messger;
       });
@@ -149,8 +155,5 @@ export class AdminAccountInfoComponent implements OnInit {
 
 
   }
-  onLogout() {
-    localStorage.clear()
-    this.route.navigate(["/login"]);
-  }
+
 }

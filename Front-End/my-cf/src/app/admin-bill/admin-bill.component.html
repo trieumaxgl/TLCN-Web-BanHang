@@ -14,7 +14,7 @@
                   </div>
                   <div class="collapse navbar-collapse">
                           <ul class="nav navbar-nav navbar-right">
-                                  <li class="dropdown">
+                                  <li (click)="onLogout()" class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   
                                               <p>&nbsp;Đăng Xuất &nbsp;</p>
@@ -22,19 +22,14 @@
                                   </li>
                               </ul>
                       <ul class="nav navbar-nav navbar-right">
-                          <li class="dropdown">
+                          <li class="dropdown" >
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                      <img src="../../assets/admin/assets/img/faces/face-0.jpg" class="img_avatar img-responsive" alt="Cinque Terre"/>
-                                      <p>&nbsp;TRIEU &nbsp;</p>
+                                      <img [src]="selectedImg" class="img_avatar img-responsive" alt="Cinque Terre"/>
+                                      <p>&nbsp;{{userAdmin.lastname }} &nbsp;</p>
                                 </a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="DangXuat">Đăng xuất</a></li>
-                                  
-                                </ul>
+                               
                           </li>
                       </ul>
-                     
-  
                   </div>
               </div>
           </nav>
@@ -53,7 +48,7 @@
                              
                               <div class="clearfix"></div>
                               <div class="content table-responsive table-full-width">
-                                  <table datatable class="row-border hover">
+                                  <table class="row-border hover">
                                       <thead>
                                           <tr>
                                                 <th>ID</th>
@@ -66,24 +61,25 @@
                                           </tr>
                                           
                                       </thead>
-                                      <tbody>
+                                      <tbody *ngIf="bills?.leght !=0 ">
                                           
-                                              <tr>
-                                                  <td>1</td>
-                                                  <td>
-                                                      <div >
+                                              <tr *ngFor = "let bill of bills ;let index = index;">
+                                                  <td>{{bill.id}}</td>
+                                                  <td >
+                                                      <div  >
+                
                                                           <span>
-                                                          Trần Quang Triều
+                                                          {{bill.firstname}} {{bill.lastname}}
                                                           </span>
                                                       </div>
                                                   </td>
-                                                  <td>trieu@gmail.com</td>
-                                                  <td>012365789</td>
-                                                  <td>1000000 vnđ</td>
-                                                  <td><a  [routerLink] = "['/admin/bill/detail']" 
-                                                  style="font-size: 16px; color: black; padding-left: 30px;" class="ti-pencil-alt"></a></td>
+                                                  <td>{{bill.email}}</td>
+                                                  <td>{{bill.phone}}</td>
+                                                  <td>{{bill.total}} vnđ</td>
+                                                  <td><button (click)= "onGotoBillDetail(bill.id)" 
+                                                  style="font-size: 16px; color: black;margin-left: 30%" class="btn btn-default ti-pencil-alt"></button></td>
                                                   <td><a href="#" onclick="return getConfirmation();" 
-                                                  style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a></td>
+                                                  style="font-size: 16px; color: #d45f31;" class="btn btn-default ti-trash"></a></td>
                                               </tr>
                                          
                                       </tbody>

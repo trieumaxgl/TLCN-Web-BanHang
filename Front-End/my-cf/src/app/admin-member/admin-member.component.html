@@ -14,7 +14,7 @@
                   </div>
                   <div class="collapse navbar-collapse">
                           <ul class="nav navbar-nav navbar-right">
-                                  <li class="dropdown">
+                                  <li (click)="onLogout()" class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   
                                               <p>&nbsp;Đăng Xuất &nbsp;</p>
@@ -27,10 +27,7 @@
                                       <img src="../../assets/admin/assets/img/faces/face-0.jpg" class="img_avatar img-responsive" alt="Cinque Terre"/>
                                       <p>&nbsp;TRIEU &nbsp;</p>
                                 </a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="DangXuat">Đăng xuất</a></li>
-                                  
-                                </ul>
+                              
                           </li>
                       </ul>
                      
@@ -53,7 +50,7 @@
                              
                               <div class="clearfix"></div>
                               <div class="content table-responsive table-full-width">
-                                  <table datatable class="row-border hover">
+                                  <table class="row-border hover">
                                       <thead>
                                           <tr>
                                                 <th>ID</th>
@@ -67,18 +64,18 @@
                                           </tr>
                                           
                                       </thead>
-                                      <tbody> 
-                                              <tr>
-                                                  <td>1</td>
-                                                  <td>Trần Quang Triều</td>
-                                                  <td>trieu@gmail.com</td>
-                                                  <td>012365789</td>
-                                                  <td>15/06/1997</td>
-                                                  <td>Hồ Chí Minh</td>
-                                                  <td><a href="#" onclick="return getConfirmation2();"
-                                                    style="font-size: 16px; color: black; padding-left: 30px;" class="ti-reload"></a></td>
+                                      <tbody *ngIf="users?.length != 0"> 
+                                              <tr *ngFor="let user of users">
+                                                  <td>{{user.id}}</td>
+                                                  <td>{{user.firstname}} {{user.lastname}}</td>
+                                                  <td>{{user.email}}</td>
+                                                  <td>{{user.phone}}</td>
+                                                  <td>{{user.birthday | date : "dd/MM/yyyy"}}</td>
+                                                  <td>{{user.address}}</td>
+                                                  <td><button href="#" onclick="return getConfirmation2();"
+                                                    style="font-size: 16px; color: black;margin-left: 30%" class="btn btn-default ti-pencil-alt"></button></td>
                                                   <td><a href="#" onclick="return getConfirmation();" 
-                                                  style="font-size: 16px; color: #d45f31; padding-left: 30px;" class="ti-trash"></a></td>
+                                                  style="font-size: 16px; color: #d45f31;" class="btn btn-default ti-trash"></a></td>
                                               </tr>
                                          
                                       </tbody>

@@ -23,8 +23,13 @@ import 'datatables.net-bs4';
 })
 export class ProductComponent implements OnInit {
   items:Items[];
+  itemsProduct:Items[];
   attachFiles : AttachFile[];
-  constructor(private adService: AdServiceService, private router: Router) { }
+  check:number=0;
+  constructor(private adService: AdServiceService, private router: Router) { 
+    this.itemsProduct = new Array();
+    this.items = new Array();
+  }
 
   ngOnInit(): void {
     this.adService.loadAllItem()
@@ -32,6 +37,29 @@ export class ProductComponent implements OnInit {
       if(res.success == "true")
       {
         this.items = res.data; 
+        if(this.items!=null){
+          var kt1=0,kt2 = 0 ,kt3=0, y = 9;
+          for(var i = 0 ;i<this.items.length;i++)
+          {
+            if(this.items[i].typesId ==  1 && kt1 <3 )
+            {
+              this.itemsProduct[y-9] = this.items[i];
+              kt1 ++;
+            }
+            if(this.items[i].typesId ==  2 && kt2 <3 )
+            {
+              this.itemsProduct[y-9] = this.items[i];
+              kt2++;
+            }
+            if(this.items[i].typesId ==  3 && kt3 <3 )
+            {
+              this.itemsProduct[y-9] = this.items[i];
+              kt3++;
+            }
+            y++;
+          }
+        }
+        console.log("data :" + res.data.length)
       }
      
     }, err => {

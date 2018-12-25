@@ -6,4 +6,5 @@ export class Items {
     description:String;
     status:number;
     price:number;
+    quantity:number;
 }

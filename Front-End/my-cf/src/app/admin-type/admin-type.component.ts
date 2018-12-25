@@ -3,6 +3,7 @@ import { Route, Router } from '@angular/router';
 import { AdServiceService } from '../ad-service/ad-service.service';
 import { Items } from '../../models/Items';
 import { Types } from '../../models/Types';
+import { AttachFile } from '../../models/Attach_File';
 import { first } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import {HttpClient,HttpHeaders,HttpResponse} from '@angular/common/http';
@@ -29,11 +30,20 @@ class DataTablesResponse {
 export class AdminTypeComponent implements OnInit {
   dataTable: any;
   items:Items[];
+  attachFiles: AttachFile[];
+  email:string;
   context = environment.base_admin_url;
   
-  constructor(private http: HttpClient,private adService: AdServiceService, private router: Router,private chRef: ChangeDetectorRef) { }
+  constructor(private http: HttpClient,private adService: AdServiceService, 
+    private router: Router,private chRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    this.email = localStorage.getItem("email");
+    if(!this.email)
+    {
+      alert("Vui lòng đăng nhập!!");
+      this.router.navigate(["/login"]);
+    }
     this.adService.loadAllItem()
     .subscribe(res => {
       if(res.success == "true")
@@ -55,6 +65,10 @@ export class AdminTypeComponent implements OnInit {
       console.log(err.message)
   });
   
+  }
+  onLogout(){
+    localStorage.clear()
+    this.router.navigate(["/login"]);
   }
   onGotoItemDetail(id) {
     this.router.navigate(["/admin/type/detail"], { queryParams: { id: id } });

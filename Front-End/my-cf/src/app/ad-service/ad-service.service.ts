@@ -20,6 +20,21 @@ export class AdServiceService {
   loadAllItem() : Observable<any>{
     return this.http.get(`${this.context}api/v1/admin/items/load`);
   }
+  loadAllUser() : Observable<any>{
+    return this.http.get(`${this.context}api/v1/admin/user/alluser`);
+  }
+  loadAllBill() : Observable<any>{
+    return this.http.get(`${this.context}api/v1/bill/billitem/load`);
+  }
+  loadBill(id) : Observable<any>{
+    return this.http.get(`${this.context}api/v1/bill/bill/${id}`);
+  }
+  findItembyBill(id) : Observable<any>{
+    return this.http.get(`${this.context}api/v1/bill/billitem/${id}`);
+  }
+  findUserByBill(id) : Observable<any>{
+    return this.http.get(`${this.context}api/v1/admin/user/finduserbyid?id=${id}`);
+  }
   findItemById(id) : Observable<any>{
     return this.http.get(`${this.context}api/v1/admin/items/search?id=${id}`);
   }
@@ -35,10 +50,14 @@ export class AdServiceService {
   updateItem(item:Items) : Observable<any>{
     return this.http.post(`${this.context}api/v1/admin/items/update/${item.id}`,item);
   }
+  updateAttachFile(attachFile: AttachFile) : Observable<any>{
+    return this.http.post(`${this.context}api/v1/admin/items/updateImage/${attachFile.id}`,attachFile);
+  }
   createItem(item:Items) : Observable<any>{
     return this.http.post(`${this.context}api/v1/admin/items/create`,item);
   }
   addImage(attachFile: AttachFile): Observable<any>{
     return this.http.post(`${this.context}api/v1/admin/items/image`, attachFile,{observe:'response'});
   }
+  
 }

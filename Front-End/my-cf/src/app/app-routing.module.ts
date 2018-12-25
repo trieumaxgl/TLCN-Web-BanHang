@@ -17,6 +17,7 @@ import { AdminTypeAddComponent } from './admin-type-add/admin-type-add.component
 import { AdminTypeDetailComponent } from './admin-type-detail/admin-type-detail.component';
 import { AdminBillComponent } from './admin-bill/admin-bill.component';
 import { AdminBillDetailComponent } from './admin-bill-detail/admin-bill-detail.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'index' ,component: IndexComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'product', component: ProductComponent },
   { path: 'product/view', component: ProductViewComponent },
   { path: 'product/detail', component: ProductDetailComponent },

@@ -61,6 +61,7 @@
 
 
       </div>
+      <form  method="POST" (ngSubmit)="createCart()">
       <div class="pro_list_right">
         <div class="fl_ma">Tên sản phẩm:
           <label class="price_sale fl_font_saigon">{{item.name}} (500g)</label>
@@ -69,6 +70,11 @@
           <label class="price_sale fl_font_saigon">{{item.price}}
             <b>
               VNĐ</b>
+          </label>
+        </div>
+        <div class="fl_ma">Số lượng:
+          <label class="price_sale fl_font_saigon">
+            <input type="number"[(ngModel)]="quantity" class="form-control border-input" name="quantity" value="{{quantitySL}}" required>
           </label>
         </div>
         <div class="fl_ma fl_color_999">Danh mục:
@@ -80,7 +86,7 @@
         </div>
         <div class="cart_button">
           <label data-id="15" class="fl_thanhtoan addcart">
-            <input type="button" class="btn" value="Đặt hàng">
+            <input type="submit" class="btn" value="Đặt hàng">
           </label>
         </div>
         <div class="box_title">
@@ -94,6 +100,7 @@
             {{item.description}} </div>
         </div>
       </div>
+    </form>
     </div>
   </div>
 </div>

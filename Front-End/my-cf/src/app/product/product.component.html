@@ -14,7 +14,7 @@
         </div>
         <div class="clear"> </div>
         <div class="specials-grids"  >
-          <div class="special-grid"*ngFor="let item of items" >
+          <div class="special-grid"*ngFor="let item of itemsProduct" >
            <div *ngIf="item.typesId == 3">
             <div *ngFor="let attachfile of attachFiles">
               <div *ngIf="attachfile.itemId == item.id">
@@ -47,7 +47,7 @@
           </div>
           <div class="clear"> </div>
           <div class="specials-grids">
-              <div class="special-grid"*ngFor="let item of items" >
+              <div class="special-grid"*ngFor="let item of itemsProduct" >
                   <div *ngIf="item.typesId == 1">
                    <!-- <img src="images/slider2.jpg" title="image-name" width="70%" height="50%"> -->
                    <div *ngFor="let attachfile of attachFiles">
@@ -82,7 +82,7 @@
             </div>
             <div class="clear"> </div>
             <div class="specials-grids"  >
-                <div class="special-grid"*ngFor="let item of items" >
+                <div class="special-grid"*ngFor="let item of itemsProduct" >
                     <div *ngIf="item.typesId == 2">
                      <!-- <img src="images/slider2.jpg" title="image-name" width="70%" height="50%"> -->
                      <div *ngFor="let attachfile of attachFiles">

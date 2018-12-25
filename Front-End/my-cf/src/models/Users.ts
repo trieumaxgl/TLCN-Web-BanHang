@@ -2,7 +2,7 @@ import { Carts } from "./Carts";
 import { Roles } from "./Roles";
 
 export class Users {
-    id: number;
+    id:number;
     birthday: Date;
     gender: Number;
     avatar:String;
@@ -12,8 +12,6 @@ export class Users {
     password: String;
     firstname: String;
     lastname: String;
-    status: Number;
     description: String;
-    cart:Carts;
-    role:Roles;
+    role:number;
 }

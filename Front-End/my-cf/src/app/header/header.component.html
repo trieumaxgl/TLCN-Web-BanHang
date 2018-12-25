@@ -8,11 +8,7 @@
       </div>
       <div class="social-icons">
         <ul>
-            <li *ngIf="email" >
-                <a href="#">
-                  <img src="../../assets/member/images/icon-avatar-default.png" style="height: 50px;width: 50px" title="User" />
-                </a>
-              </li>
+            
           <li>
             <a href="#">
               <img src="../../assets/member/images/facebook.png" title="facebook" />
@@ -52,7 +48,7 @@
             <a href="contact.html">Liên hệ</a>
           </li>
           <li *ngIf="email" routerLinkActive="active" (click)="onLogout()">
-            <a >Đăng Xuất</a>
+            <a href="" >Đăng Xuất</a>
           </li>
           <li *ngIf="email == null" routerLinkActive="active">
             <a [routerLink] = "['/login']">Đăng Nhập</a>
@@ -62,11 +58,19 @@
                 <img src="../../assets/member/images/shopping.png" height="22px" width="30px">
             </a>
           </li>
+          
+            <li *ngIf="email"routerLinkActive="active" >
+              <a [routerLink] = "['/profile']">
+                <img [src]="avatar" style="height: 22px;width: 22px;border-radius: 50%;
+                position: relative; margin: 0;padding: 0" title="{{user.lastname}}" />
+              </a>
+            </li>
+          
           <div class="clear"> </div>
         </ul>
       </div>
       <div class="top-nav-right">
-
+        
         <form>
           <input type="text">
           <input type="submit" value="" />

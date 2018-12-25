@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -13,9 +15,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
   }
-
+  onGotoProductView(id) {
+    this.router.navigate(["/product/view"], { queryParams: { id: id } });
+  }
 }
