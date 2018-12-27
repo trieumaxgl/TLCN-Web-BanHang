@@ -48,14 +48,13 @@ export class LoginComponent implements OnInit {
 
   // }
   login()  {
-    alert("Đăng nhập thành công !!")
+   
     this.nuService.login(this.user)
       .pipe(first())
       .subscribe(res => {
-        console.log(res.email);
-        console.log(res.data.role);
         if(res.success == "true")
         {
+          alert("Đăng nhập thành công !!")
           localStorage.setItem("email", res.data.email);
           localStorage.setItem("role", res.data.role);
           if(res.data.role == 1){
@@ -68,6 +67,7 @@ export class LoginComponent implements OnInit {
         }
         else
         {
+          alert("Sai email hoặc password !!")
             this.error = res.message
         }
       }, err => {

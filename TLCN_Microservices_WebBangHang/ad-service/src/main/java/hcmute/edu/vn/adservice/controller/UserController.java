@@ -30,7 +30,7 @@ public class UserController {
         //get all product was not deleted
         DataReturnList<UserDto> dataReturnList = new DataReturnList<>();
         dataReturnList.setMessage("get all users");
-        dataReturnList.setData(userService.findAll(roleService.findById(1))
+        dataReturnList.setData(userService.findAll(roleService.findById(2))
                 .stream()
                 .map(userMapper::userToUserDto)
                 .collect(Collectors.toList()));

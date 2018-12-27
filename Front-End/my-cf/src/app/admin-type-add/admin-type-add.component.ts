@@ -61,6 +61,7 @@ export class AdminTypeAddComponent implements OnInit {
     this.adService.createItem(this.item)
     .pipe(first())
     .subscribe(res => {
+      if(res.success == "true"){
         console.log(res.success);
         this.attachFile.itemId = res.data.id;
         this.onSaveImage();
@@ -70,9 +71,12 @@ export class AdminTypeAddComponent implements OnInit {
         this.item.description= "";
         alert("Thêm thành công !!");
         this.router.navigate(['/admin/type/add']);
+      }
+      
      //alert("Thêm thành công!!");
       // this.router.navigate(['/admin/type/add']);
     }, err => {
+      alert("Phải điền đày đủ thông tin !!");
       this.error = err.messger;
     });
     

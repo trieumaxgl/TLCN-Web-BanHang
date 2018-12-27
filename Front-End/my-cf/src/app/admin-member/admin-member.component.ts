@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, Renderer ,ChangeDetectorRef} from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { AdServiceService } from '../ad-service/ad-service.service';
+import { NuServiceService } from '../nu-service/nu-service.service';
 import { Users} from '../../models/Users';
 import { first } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
@@ -22,7 +23,7 @@ export class AdminMemberComponent implements OnInit {
   dataTable: any;
   users:Users[];
   email:string;
-  constructor(private adService: AdServiceService, 
+  constructor(private adService: AdServiceService, private nonUserService: NuServiceService,
     private router: Router,private chRef: ChangeDetectorRef) { }
 
   ngOnInit() {
@@ -52,6 +53,15 @@ export class AdminMemberComponent implements OnInit {
       // Now you can use jQuery DataTables :
       const table: any = $('table');
       this.dataTable = table.DataTable();
+    }, err => {
+      console.log(err.message)
+  });
+  }
+  onResetPassoword(email)
+  {
+    this.nonUserService.resetPassword(email)
+    .subscribe(res => {
+        alert("Password đã được reset về 12345678");
     }, err => {
       console.log(err.message)
   });

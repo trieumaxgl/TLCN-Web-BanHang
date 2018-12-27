@@ -109,10 +109,15 @@ export class CartComponent implements OnInit {
       this.userService.createBill(this.email)
         .pipe(first())
         .subscribe(res => {
-          alert("Thanh toán thành công !!");
-          this.getCartITem();
-         // this.router.navigate(['/cart']);
+
+            alert("Thanh toán thành công !!");
+            this.getCartITem();
+           // this.router.navigate(['/cart']);
+          
+        
+         
         }, err => {
+          alert("Không có sản phẩm để thanh toán !!");
           console.log(err.message);
         });
     }

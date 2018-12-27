@@ -24,4 +24,7 @@ export class NuServiceService {
     return this.http.post(this.context +'api/v1/nuser/register',user,
     {observe:'response'});
   }
+  resetPassword(email) : Observable<any>{
+    return this.http.post(`${this.context}api/v1/nuser/reset/${email}`,"");
+  }
 }
