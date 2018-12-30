@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { AdServiceService } from '../ad-service/ad-service.service';
+import { UserServiceService } from '../ad-service/user-service.service';
 import { Items } from '../../models/Items';
 import { AttachFile } from '../../models/Attach_File';
 import { Types } from '../../models/Types';
@@ -26,7 +27,10 @@ export class ProductComponent implements OnInit {
   itemsProduct:Items[];
   attachFiles : AttachFile[];
   check:number=0;
-  constructor(private adService: AdServiceService, private router: Router) { 
+  email : string;
+  error:string;
+  imgCart:string;
+  constructor(private adService: AdServiceService,private userService: UserServiceService, private router: Router) { 
     this.itemsProduct = new Array();
     this.items = new Array();
   }
@@ -75,7 +79,25 @@ export class ProductComponent implements OnInit {
   }, err => {
     console.log(err.message)
 });
-  
+this.email = localStorage.getItem("email");
+  }
+  createCart(id) {
+    if(this.email){
+      this.userService.createCart(id,this.email,1)
+        .pipe(first())
+        .subscribe(res => {
+          this.imgCart= "../../assets/member/images/shopping_cart.png";
+          this.router.navigate(['/product']);
+        }, err => {
+          this.error = err.messger;
+        });
+    }
+    else{
+      alert("Bạn phải đăng nhập !!");
+      this.router.navigate(['/login'])
+    }
+   
+
   }
   onGotoProductView(id) {
     this.router.navigate(["/product/view"], { queryParams: { id: id } });

@@ -14,17 +14,8 @@
           </label>
 
           <div class="clear"> </div>
-          <h3>{{item.name}}</h3>
-          <figure class="box_title_img">
-            <img src="../../assets/member/images/icons/img_title.png">
-          </figure>
-
-          <div class="clear"> </div>
-          <label></label>
+          <h3>{{item.name}} (500g)</h3>
         </div>
-        <div class="clear"> </div>
-
-        <div class="clear"> </div>
       </div>
 
     </div>
@@ -63,9 +54,7 @@
       </div>
       <form  method="POST" (ngSubmit)="createCart()">
       <div class="pro_list_right">
-        <div class="fl_ma">Tên sản phẩm:
-          <label class="price_sale fl_font_saigon">{{item.name}} (500g)</label>
-        </div>
+    
         <div class="fl_ma">Giá:
           <label class="price_sale fl_font_saigon">{{item.price}}
             <b>
@@ -74,25 +63,30 @@
         </div>
         <div class="fl_ma">Số lượng:
           <label class="price_sale fl_font_saigon">
-            <input type="number"[(ngModel)]="quantity" class="form-control border-input" name="quantity" value="{{quantitySL}}" required>
+            <input type="number"[(ngModel)]="quantity" class="form-control border-input " name="quantity" value="{{quantitySL}}" required>
           </label>
         </div>
-        <div class="fl_ma fl_color_999">Danh mục:
-          <i *ngIf= "item.typesId == 3">Rang Xay</i>
+        <div class="fl_ma">Loại cà phê :
+          <i class="price_sale fl_font_saigon" *ngIf= "item.typesId == 3">Rang Xay</i>
+          <i  class="price_sale fl_font_saigon" *ngIf= "item.typesId == 2">Hạt</i>
+          <i  class="price_sale fl_font_saigon" *ngIf= "item.typesId == 1">Bột</i>
         </div>
-      
+        <div class="fl_ma">Hàng trong kho:
+          <label class="price_sale fl_font_saigon">Còn hàng
+          </label>
+        </div>
         <div class="description">
           <div class="addthis_inline_share_toolbox"></div>
         </div>
         <div class="cart_button">
-          <label data-id="15" class="fl_thanhtoan addcart">
-            <input type="submit" class="btn" value="Đặt hàng">
+          <label  class="fl_thanhtoan addcart">
+            <input type="submit" class="btn" value="Thêm vào giỏ">
           </label>
         </div>
         <div class="box_title">
           <label style="font-size: 1.8em">
             <a class="fl_color_034" href="javascript:voi(0);">
-              mô tả sản phẩm </a>
+              Mô tả sản phẩm </a>
           </label>
         </div>
         <div class="box_product">

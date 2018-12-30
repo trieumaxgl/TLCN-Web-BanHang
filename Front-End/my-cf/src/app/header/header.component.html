@@ -36,16 +36,16 @@
             <a [routerLink] = "['/index']" >Trang Chủ</a>
           </li>
           <li routerLinkActive="active">
-            <a href="about.html">Giới Thiệu</a>
+            <a href="">Giới Thiệu</a>
           </li>
           <li routerLinkActive="active">
             <a [routerLink] = "['/product']">Sản Phẩm </a>
           </li>
           <li routerLinkActive="active">
-            <a href="gallery.html">Khuyến Mãi</a>
+            <a href="">Khuyến Mãi</a>
           </li>
           <li>
-            <a href="contact.html">Liên hệ</a>
+            <a href="">Liên hệ</a>
           </li>
           <li *ngIf="email" routerLinkActive="active" (click)="onLogout()">
             <a href="" >Đăng Xuất</a>
@@ -55,7 +55,7 @@
           </li>
           <li routerLinkActive="active">
             <a [routerLink] = "['/cart']">
-                <img src="../../assets/member/images/shopping.png" height="22px" width="30px">
+                <img [src]="imgCart" height="22px" width="30px">
             </a>
           </li>
           
