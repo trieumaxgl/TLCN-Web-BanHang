@@ -118,6 +118,13 @@ body{
 	margin:0;
 	-webkit-apperance:none;
 }
+/*---start-slide-----*/
+.slide-cf{
+	padding:30px 5px;
+	width: 70%;
+	margin-left: 15%;
+	height: 450px;
+}
 /*---start-content-----*/
 .top-grid{
 	width: 31.33%;
@@ -513,6 +520,19 @@ figure {
 	padding: 0em 1em 1em 1em;
 	line-height: 1.5em;
 }
+.special-grid button{
+	background: #000;
+	color: white;
+	width: 30%;
+	height: 25px;
+	border-radius: 3px;
+	font-size: 0.9em;
+	text-align: center;
+	margin-top: 7px;
+}
+.special-grid button:hover{
+	background: #363638;
+}
 .spe-grid{
 	margin: 0px;
 }
@@ -617,13 +637,13 @@ figure {
 .box_pro_list {
     float: left;
     width: 100%;
-    margin: 40px 0;
+    margin:0;
     padding: 15px 0;
 }
 /*---list left---*/
 .pro_list_left {
     float: left;
-    width: calc(65% - 20px);
+    width: calc(60% - 20px);
     margin: 10px;
     position: relative;
 }
@@ -774,19 +794,29 @@ figure {
 .pro_list_right {
     float: right;
     width: calc(35% - 20px);
-    margin: 10px;
+	margin: 10px;
+	margin-right: 5%;
+	margin-top: 5%;
 }
 .fl_ma {
     float: left;
     width: 100%;
     padding: 5px 0;
-    color: #45281f;
-    font-size: 1.1em;
+	color: #45281f;
+	font-weight: bold;
+	text-transform: uppercase;
+    font-size: 1.3em;
 }
 
 .fl_ma b {
     color: #45281f;
 
+}
+.fl_ma input {
+	margin: 0 auto;
+    width: 30%;
+    height: 25px;
+	border-radius: 4px;
 }
 
 .fl_font_saigon {
@@ -807,7 +837,7 @@ figure {
 }
 
 .price_sale {
-    font-size: 1.3em;
+    font-size: 1.1em;
     text-transform: uppercase;
     color: #ff9900;
 }
@@ -825,19 +855,23 @@ figure {
     display: block;
     margin: 0 auto;
     width: 100%;
-    height: 65px;
+    height: 55px;
     border-bottom: 5px solid #ab050c;
     border-top: none;
     border-left: none;
-    border-right: none;
+	border-right: none;
+	border-radius: 10px;
     background: linear-gradient(#ed1c24, #c50c13);
     color: white;
     box-shadow: 0 2px 10px grey;
     transition: 150ms ease;
     text-transform: uppercase;
-    font-size: 1.7em;
+    font-size: 1.1em;
     cursor: pointer;
     outline: none;
+}
+.cart_button :hover{
+	color: #000;
 }
 .box_title {
     float: left;
@@ -862,7 +896,7 @@ figure {
 }
 .cart_button {
     float: left;
-    width: 100%;
+    width: 40%;
     margin: 25px 0;
 }
 /*---start-gallery---*/

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { Users } from '../../models/Users';
+import { Cart_Item } from '../../models/Cart_Item';
 import { UserServiceService } from '../ad-service/user-service.service';
 import { AttachFile } from '../../models/Attach_File';
 @Component({
@@ -19,15 +20,22 @@ export class HeaderComponent implements OnInit {
   avatar : string
   error : String;
   user: Users;
+  cartItem: Cart_Item[];
+  total : number;
+  cart : any;
+  quantity:number;
+  imgCart:string;
   constructor( private route : Router,private userService:UserServiceService) {
     this.user = new Users();
     this.avatar = "";
+    this.imgCart="../../assets/member/images/shopping.png";
    }
 
   ngOnInit() {
     this.email = localStorage.getItem("email");
     console.log(this.email);
     this.loadUser();
+    this.getCartITem();
   }
   loadUser() {
     this.userService.findUser(this.email)
@@ -41,6 +49,20 @@ export class HeaderComponent implements OnInit {
       }, err => {
         console.log(err.message)
       });
+  }
+  getCartITem() {
+    this.userService.findCartItem(this.email)
+      .subscribe(res => {
+        if (res.success == "true") {
+          this.cartItem = res.data;
+          this.imgCart = "../../assets/member/images/shopping_cart.png"
+        }
+      }, err => {
+        console.log(err.message)
+        this.total = 0;
+        this.cartItem = null;
+      });
+
   }
   onLogout(){
     localStorage.clear()

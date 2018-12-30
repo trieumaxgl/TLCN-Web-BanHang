@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css',
+  '../../assets/admin/assets/css/bootstrap.min.css',
   '../../assets/member/css/style.css',
   '../../assets/member/fonts/font-awesome-4.7.0/css/font-awesome.min.css',
   '../../assets/member/css/lightbox.css',
