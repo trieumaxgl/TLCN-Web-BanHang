@@ -31,4 +31,12 @@ public class ItemServiceImpl implements ItemService {
             throw new NotFoundException("Product is Empty !!!");
         return items;
     }
+
+    @Override
+    public List<Items> findAllByName(Optional<String> keyword){
+        List<Items> search = itemRepository.findAllByName(keyword.orElse(""));
+        if(search == null)
+            throw new NotFoundException("Product Not Found!!!");
+        return search;
+    }
 }
