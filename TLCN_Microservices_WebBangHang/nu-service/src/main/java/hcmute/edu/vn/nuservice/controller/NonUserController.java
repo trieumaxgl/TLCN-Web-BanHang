@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -122,6 +123,21 @@ public class NonUserController {
             dataReturnList.setData(items.stream().map(itemMapper::itemToItemDto).collect(Collectors.toList()));
         }
 
+        return dataReturnList;
+    }
+
+    @GetMapping("/search")
+    public DataReturnList<ItemDto> search(@RequestParam Optional<String> keyword){
+        DataReturnList<ItemDto> dataReturnList = new DataReturnList<>();
+        try {
+            List<Items> items = itemService.findAllByName(keyword);
+            dataReturnList.setData(items.stream().map(itemMapper::itemToItemDto)
+                    .collect(Collectors.toList()));
+            dataReturnList.setMessage("Cac san pham tim thay!!");
+        }catch (Exception e){
+            dataReturnList.setSuccess("false");
+            dataReturnList.setMessage("Khong the lay san pham ???");
+        }
         return dataReturnList;
     }
 

@@ -106,7 +106,8 @@ export class CartComponent implements OnInit {
   }
   createBill(){
     if(this.email){
-      this.userService.createBill(this.email)
+      if(this.total != 0){
+        this.userService.createBill(this.email)
         .pipe(first())
         .subscribe(res => {
 
@@ -120,6 +121,11 @@ export class CartComponent implements OnInit {
           alert("Không có sản phẩm để thanh toán !!");
           console.log(err.message);
         });
+      }
+      else{
+        alert("Không có sản phẩm để thanh toán !!");
+      }
+     
     }
     else{
       alert("Bạn phải đăng nhập !!");
