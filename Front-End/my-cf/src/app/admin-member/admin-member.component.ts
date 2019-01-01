@@ -9,6 +9,8 @@ import {HttpClient,HttpHeaders,HttpResponse} from '@angular/common/http';
 import * as $ from 'jquery';
 import 'datatables.net';
 import 'datatables.net-bs4';
+import { UserServiceService } from '../ad-service/user-service.service';
+
 @Component({
   selector: 'app-admin-member',
   templateUrl: './admin-member.component.html',
@@ -22,9 +24,20 @@ import 'datatables.net-bs4';
 export class AdminMemberComponent implements OnInit {
   dataTable: any;
   users:Users[];
+  usersTmp:Users[];
   email:string;
+  userAdmin: Users;
+  selectedImg: string = "";
+  y:number;
+  lastname:string = "";
   constructor(private adService: AdServiceService, private nonUserService: NuServiceService,
-    private router: Router,private chRef: ChangeDetectorRef) { }
+    private router: Router,private chRef: ChangeDetectorRef,private userService:UserServiceService) { 
+      this.users = new Array();
+      this.usersTmp = new Array();
+      this.userAdmin = new Users();
+      this.y= 0 ;
+      this.lastname = "";
+    }
 
   ngOnInit() {
     this.email = localStorage.getItem("email");
@@ -33,16 +46,41 @@ export class AdminMemberComponent implements OnInit {
       alert("Vui lòng đăng nhập!!");
       this.router.navigate(["/login"]);
     }
+    this.loadUser();
     this.loadAllUser();
+
+  }
+  loadUser() {
+    this.userService.findUser(this.email)
+      .subscribe(res => {
+        if (res.success == "true") {
+          this.userAdmin = res.data;
+          console.log("last name :" +this.userAdmin.lastname)
+          this.selectedImg = res.data.avatar;
+          this.lastname = res.data.lastname;
+
+        }
+      }, err => {
+        console.log(err.message)
+      });
   }
   loadAllUser(){
+    this.users = new Array();
+    this.y = 0;
     this.adService.loadAllUser()
     .subscribe(res => {
       if(res.success == "true")
       {
         
-        this.users = res.data;
-        
+        this.usersTmp = res.data;
+
+        for (var i = 0; i < this.usersTmp.length; i++) {
+          console.log("status :" + this.usersTmp[i].status);
+          if (this.usersTmp[i].status == 1) {
+            this.users[this.y] = this.usersTmp[i];
+            this.y++;
+          }
+        }
       }
      
 

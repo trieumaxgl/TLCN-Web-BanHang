@@ -50,6 +50,9 @@ export class AdServiceService {
   updateItem(item:Items) : Observable<any>{
     return this.http.post(`${this.context}api/v1/admin/items/update/${item.id}`,item);
   }
+  deleteItem(id) : Observable<any>{
+    return this.http.post(`${this.context}api/v1/admin/items/delete/${id}`,"");
+  }
   updateAttachFile(attachFile: AttachFile) : Observable<any>{
     return this.http.post(`${this.context}api/v1/admin/items/updateImage/${attachFile.id}`,attachFile);
   }

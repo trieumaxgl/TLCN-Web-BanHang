@@ -68,7 +68,8 @@ import { ProfileComponent } from './profile/profile.component';
   providers: [
     NuServiceService,
     AdServiceService,
-    UserServiceService
+    UserServiceService,
+    HeaderComponent
   ],
   bootstrap: [AppComponent]
 })

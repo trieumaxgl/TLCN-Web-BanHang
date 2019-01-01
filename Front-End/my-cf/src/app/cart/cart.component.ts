@@ -6,6 +6,7 @@ import { Items } from '../../models/Items';
 import { AttachFile } from '../../models/Attach_File';
 import { Cart_Item } from '../../models/Cart_Item';
 import { first } from 'rxjs/operators';
+import { HeaderComponent } from '../../app/header/header.component';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -26,10 +27,12 @@ export class CartComponent implements OnInit {
   quantity:number;
   form: FormGroup;
   imgCart:string;
-  constructor(private router: Router, private userService: UserServiceService,private fb: FormBuilder) {
+  constructor(private router: Router, private userService: UserServiceService,private fb: FormBuilder,
+    private header:HeaderComponent) {
     this.quantity = 0 ;
     this.total = 0;
     this.cart = new Cart_Item();
+    header.ngOnInit();
 
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -42,7 +45,7 @@ export class CartComponent implements OnInit {
     this.email = localStorage.getItem("email");
     this.getCartITem();
 
-   
+    this.header.ngOnInit();
   }
   getCartITem() {
     this.userService.findCartItem(this.email)
@@ -59,13 +62,14 @@ export class CartComponent implements OnInit {
               this.total = this.total + this.cartItem[i].quantity * this.cartItem[i].price;
             }
           }
-          
         }
       }, err => {
+   
+        console.log( this.header.imgCart.toString());
+        this.header.imgCart="../../assets/member/images/shopping.png";
         console.log(err.message)
         this.total = 0;
         this.cartItem = null;
-        this.imgCart= "../../assets/member/images/shopping_cart.png";
       });
 
   }
@@ -96,7 +100,8 @@ export class CartComponent implements OnInit {
         .subscribe(res => {
           alert("Xóa thành công !!");
           this.getCartITem();
-         // this.router.navigate(['/cart']);
+          location.reload();
+         this.router.navigate(['/cart']);
         }, err => {
           console.log(err.message);
         });
@@ -115,9 +120,8 @@ export class CartComponent implements OnInit {
 
             alert("Thanh toán thành công !!");
             this.getCartITem();
-           // this.router.navigate(['/cart']);
-          
-        
+           this.router.navigate(['/cart']);
+           location.reload();
          
         }, err => {
           alert("Không có sản phẩm để thanh toán !!");

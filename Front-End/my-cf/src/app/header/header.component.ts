@@ -6,6 +6,7 @@ import { Users } from '../../models/Users';
 import { Cart_Item } from '../../models/Cart_Item';
 import { UserServiceService } from '../ad-service/user-service.service';
 import { AttachFile } from '../../models/Attach_File';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -61,6 +62,7 @@ export class HeaderComponent implements OnInit {
         console.log(err.message)
         this.total = 0;
         this.cartItem = null;
+        this.imgCart="../../assets/member/images/shopping.png";
       });
 
   }

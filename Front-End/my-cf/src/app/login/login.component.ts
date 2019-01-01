@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
       .subscribe(res => {
         if(res.success == "true")
         {
-          alert("Đăng nhập thành công !!")
+
           localStorage.setItem("email", res.data.email);
           localStorage.setItem("role", res.data.role);
           if(res.data.role == 1){

@@ -14,4 +14,5 @@ export class Users {
     lastname: String;
     description: String;
     role:number;
+    status:number;
 }

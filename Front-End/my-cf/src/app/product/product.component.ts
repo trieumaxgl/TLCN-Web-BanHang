@@ -88,6 +88,7 @@ this.email = localStorage.getItem("email");
         .subscribe(res => {
           this.imgCart= "../../assets/member/images/shopping_cart.png";
           this.router.navigate(['/product']);
+          location.reload();
         }, err => {
           this.error = err.messger;
         });

@@ -24,8 +24,8 @@
                       <ul class="nav navbar-nav navbar-right">
                           <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                      <img src="../../assets/admin/assets/img/faces/face-0.jpg" class="img_avatar img-responsive" alt="Cinque Terre"/>
-                                      <p>&nbsp;TRIEU &nbsp;</p>
+                                    <img [src]="selectedImg" class="img_avatar img-responsive" alt="Cinque Terre" />
+                                    <p>&nbsp;{{userAdmin.lastname}} &nbsp;</p>
                                 </a>
                               
                           </li>
@@ -60,7 +60,6 @@
                                                 <th>Ngày sinh</th>
                                                 <th>Địa chỉ</th>
                                                 <th>Reset password</th>
-                                                <th></th>
                                           </tr>
                                           
                                       </thead>
@@ -74,8 +73,7 @@
                                                   <td>{{user.address}}</td>
                                                   <td><button (click)="onResetPassoword(user.email);"
                                                     style="font-size: 16px; color: black;margin-left: 30%" class="btn btn-default ti-pencil-alt"></button></td>
-                                                  <td><a href="#" onclick="return getConfirmation();" 
-                                                  style="font-size: 16px; color: #d45f31;" class="btn btn-default ti-trash"></a></td>
+
                                               </tr>
                                          
                                       </tbody>
